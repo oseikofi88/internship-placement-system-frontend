@@ -1,0 +1,186 @@
+    <h4><u>Student Details</u></h4>
+
+
+<div class="loading-directions" *ngIf="loading_data">
+        <img src="../../../assets/img/loading_icon.gif" alt="" height="100" width="100">
+        <h5>Loading Data,Please Wait</h5>
+    </div>
+
+    <br>
+    <br>
+    
+
+<div [hidden]="students_registered && students_that_wanted_placement" class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Index Number</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Place Of Residence</th>
+      <th scope="col">Date Registered</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of student_statistics ">
+    <tr>
+        <td>{{student.index_number}}</td>
+        <td>{{student.surname}} {{ student.other_names}}</td>
+        <td>{{student.phone}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.location.name}}</td>
+        <td>{{student.time_of_registration}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<div [hidden]="students_placed_by_college" class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Index Number</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Place Of Residence</th>
+      <th scope="col">Company Placed</th>
+      <th scope="col">Time Of Starting Internship</th>
+      <th scope="col">Supervisor Name</th>
+      <th scope="col">Supervisor Email</th>
+      <th scope="col">Supervisor Contact</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of student_statistics ">
+    <tr>
+
+        <td>{{student.index_number}}</td>
+        <td>{{student.surname}} {{ student.other_names}}</td>
+        <td>{{student.phone}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.location.address}}</td>
+        <td>{{student.company?.name}}</td>
+        <td>{{student.time_of_starting_internship}}</td>
+        <td>{{student.supervisor_name}}</td>
+        <td>{{student.supervisor_email}}</td>
+        <td>{{student.supervisor_contact}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+<div [hidden]="students_not_placed_by_college" class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Index Number</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Place Of Residence</th>
+      <th scope="col">Date Registered</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of student_statistics ">
+    <tr>
+
+        <td>{{student.index_number}}</td>
+        <td>{{student.surname}} {{ student.other_names}}</td>
+        <td>{{student.phone}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.location.address}}</td>
+        <td>{{student.company?.name}}</td>
+        <td>{{student.time_of_registration}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<div [hidden]="students_that_rejected_company" class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Index Number</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Place Of Residence</th>
+      <th scope="col">Reason For Rejecting Company</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of student_statistics ">
+    <tr>
+        <td>{{student.index_number}}</td>
+        <td>{{student.surname}} {{ student.other_names}}</td>
+        <td>{{student.phone}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.location.name}}</td>
+        <td>{{student.reason_for_rejection}}</td>
+
+
+
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+</div>
+
+
+
+<div [hidden]="students_that_searched_for_own_company" class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Index Number</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Place Of Residence</th>
+      <th scope="col">Company Name</th>
+      <th scope="col">Time Of Starting Internship</th>
+      <th scope="col">Supervisor Name</th>
+      <th scope="col">Supervisor Email</th>
+      <th scope="col">Supervisor Contact</th>
+      <th scope="col">Acceptance Letter</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of student_statistics ">
+    <tr>
+
+        <td>{{student.index_number}}</td>
+        <td>{{student.surname}} {{ student.other_names}}</td>
+        <td>{{student.phone}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.location.name}}</td>
+        <td>{{student.company?.name}}</td>
+        <td>{{student.time_of_starting_internship}}</td>
+        <td>{{student.supervisor_name}}</td>
+        <td>{{student.supervisor_email}}</td>
+        <td>{{student.supervisor_contact}}</td>
+        <td>{{student.acceptance_letter_url}}</td>
+
+
+    </tr>
+  </tbody>
+</table>
+
+</div>

@@ -1,0 +1,48 @@
+<div class="content-body">
+
+
+    <h4><u>All Students & Companies</u></h4>
+<div class="loading-directions" *ngIf="loading_data">
+        <img src="../../../assets/img/loading_icon.gif" alt="" height="100" width="100">
+        <h5>Loading Data,Please Wait</h5>
+    </div>
+
+    <br>
+    <br>
+    
+
+
+<div class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Company Name</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Department</th>
+      <th scope="col">Company Location</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let statistics of student_details">
+    <tr>
+      <td>{{statistics.company_name}}</td>
+      <td>{{statistics.surname}} {{statistics.other_names}}</td>
+      <td>{{statistics.phone}}</td>
+      <td>{{statistics.main_department}}-{{statistics.sub_department}}</td>
+      <td>{{statistics.name}} {{statistics.address }} {{ statistics.district}}
+          {{statistics.region}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<router-outlet></router-outlet>
+
+
+
+
+</div>
+</div>

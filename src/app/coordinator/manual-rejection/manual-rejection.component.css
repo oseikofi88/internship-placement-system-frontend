@@ -1,0 +1,16 @@
+.registration-form-wrapper{
+    height:auto;
+    /* float:right; */
+    /* padding-bottom:-50px; */
+    /* margin-right:30px; */
+}
+.add-student,.remove-student{
+    float:right;
+    margin-right:30px;
+    
+}
+
+.reject-student{
+    float:right;
+    margin-right:30px;
+}

@@ -1,0 +1,302 @@
+<div class="content-body">
+    <br>
+    <br>
+    <br>
+    <br>
+    
+<div [hidden]=hide_register_company>
+
+<form
+
+     [formGroup]="companyRegistrationForm"
+     (ngSubmit)="registerCompany()"
+     novalidate>
+
+<br>
+
+
+<div [ngClass]="{'has-error':companyRegistrationForm.controls.name?.touched && companyRegistrationForm.controls.name?.errors,
+                      'has-success'
+                      :companyRegistrationForm.controls.name?.touched
+                      && companyRegistrationForm.controls.name?.valid }"
+                  class="form-group row">
+
+                          <label for="company_name" class="control-label col-sm-2
+                              col-form-label" >Company Name:</label>
+
+                          <div class="col-sm-10">
+                              <input id="_name" class="form-control"
+                              type="text" formControlName="name">
+                          <span class="
+                          help-block"*ngIf="companyRegistrationForm.get('name').hasError('required')
+                          && companyRegistrationForm.get('name').touched
+                          ">
+                              Name Of Company Is Required!
+                          </span>
+
+                      </div>
+                          </div>
+
+<div [ngClass]="{'has-error':companyRegistrationForm.controls.email?.touched &&
+                      companyRegistrationForm.controls.email?.errors,
+                      'has-success'
+                      :companyRegistrationForm.controls.email?.touched
+                      && companyRegistrationForm.controls.email?.valid }"
+                  class="form-group row">
+
+                          <label for="company_email" class="control-label col-sm-2
+                              col-form-label" >Company Email If Any:</label>
+
+                          <div class="col-sm-10">
+                              <input id="email" class="form-control"
+                              type="text"  formControlName="email">
+                          <!-- <span class=" -->
+                          <!-- help-block"*ngIf="companyRegistrationForm.get('email').hasError('required') -->
+                          <!-- && companyRegistrationForm.get('email').touched -->
+                          <!-- "> -->
+                          <!--     Email Of Company Is Required! -->
+                          <!-- </span> -->
+
+<span class="
+                          help-block"*ngIf="companyRegistrationForm.get('email').errors
+                          &&
+                          companyRegistrationForm.get('email').errors.incorrectMailFormat
+
+                          && companyRegistrationForm.get('email').touched
+                          ">
+                              Please Enter A Valid Email
+                          </span>
+
+                      </div>
+                          </div>
+
+
+        <div [ngClass]="{'has-error':companyRegistrationForm.controls.phone?.touched &&
+                      companyRegistrationForm.controls.phone?.errors,
+                      'has-success'
+                      :companyRegistrationForm.controls.phone?.touched
+                      && companyRegistrationForm.controls.phone?.valid }"
+                  class="form-group row">
+
+                          <label for="company_phone" class="control-label col-sm-2
+                              col-form-label" >Contact Number If Any:</label>
+
+                          <div class="col-sm-10">
+                              <input id="phone" class="form-control"
+                              type="text" phone="phone" formControlName="phone">
+                          <!-- <span class=" -->
+                          <!-- help-block"*ngIf="companyRegistrationForm.get('phone').hasError('required') -->
+                          <!-- && companyRegistrationForm.get('phone').touched -->
+                          <!-- "> -->
+                          <!--     Contact Number Of Company Is Required! -->
+                          <!-- </span> -->
+
+<span class="
+                          help-block"*ngIf="companyRegistrationForm.get('phone').hasError('pattern')
+
+                          && companyRegistrationForm.get('phone').touched
+                          ">
+                              Please Enter A Valid Phone!
+                          </span>
+
+                      </div>
+                          </div>
+        <div class="form-group">
+            <label for="postal_address">Post Address Of Company If Any</label>
+            <input id="postal_address" class="form-control" type="text" postal_address="postal_address"
+                                                                         formControlName="postal_address">
+        </div>
+
+        <div class="form-group">
+            <label for="website">Website Address If Any</label>
+            <input id="website" class="form-control" type="text" website="website"
+                                                                         formControlName="website">
+        </div>
+
+
+
+
+        <div formGroupName="location" >
+                                     <label  for="location">Location Of Company</label>
+                          <input placeholder="search for location"
+                                 autocorrect="off" autocapitalize="off"
+                                 spellcheck="off" type="text"
+                                                  class="location-input form-control"
+                                 #search_ref formControlName="search_place"
+                                             >
+
+
+                          <div class=" help-block"
+                      *ngIf="companyRegistrationForm.get('location').get('search_place').touched &&
+                      companyRegistrationForm.get('location').get('search_place').hasError('required')"
+                        >Location Is Required!
+                      </div>
+
+                          <div class=" help-block"
+                      *ngIf="companyRegistrationForm.get('location').get('search_place').valid
+                               && !search_input_valid"
+                        > Select from the suggested locations
+                      </div>
+
+<div>
+
+                            <agm-map #myMap [latitude]="latitude"
+                                 [longitude]="longitude"
+                                 [scrollwheel]="false" [zoom]="zoom">
+                          <agm-marker
+                            [latitude]="latitude"
+                            [longitude]="longitude"></agm-marker>
+                        </agm-map>
+                        </div>
+
+                      </div>
+
+
+<div  class="form-group row">
+
+                          <label for="company_representative_name" class="control-label col-sm-3
+                              col-form-label" >Name Of Representative:</label>
+
+                          <div class="col-sm-9">
+                              <input id="company_representative_name"
+                              class="form-control" type="text"
+                              company_representative_name="company_representative_name"
+                              formControlName="company_representative_name"
+                                >
+                <div class="alert alert-danger" *ngIf="companyRegistrationForm.get('company_representative_name').hasError('required')
+                && companyRegistrationForm.get('company_representative_name').touched">
+                    Please enter the name of the company representative.
+                </div>
+<div class="alert alert-danger"
+*ngIf="companyRegistrationForm.get('company_representative_name').hasError('pattern')
+                && companyRegistrationForm.get('company_representative_name').touched">
+                    Name Not Valid.
+                </div>
+                
+</div>
+</div>
+
+
+
+        <div  class="form-group row">
+
+                          <label for="company_representative_email" class="control-label col-sm-3
+                              col-form-label" >Email Of Representative:</label>
+
+                          <div class="col-sm-9">
+                              <input id="company_representative_email" class="form-control" type="text" company_representative_email="company_representative_email" formControlName="company_representative_email">
+
+
+
+</div>
+</div>
+        <div  class="form-group row">
+
+                          <label for="company_representative_phone" class="control-label col-sm-3
+                              col-form-label" >Contact Number Of Representative:</label>
+
+                          <div class="col-sm-9">
+                              <input id="company_representative_phone"
+                              class="form-control" type="text"
+                              company_representative_phone="company_representative_phone"
+                              formControlName="company_representative_phone"
+                                >
+                <div class="alert alert-danger" *ngIf="companyRegistrationForm.get('company_representative_phone').hasError('required')
+                && companyRegistrationForm.get('company_representative_phone').touched">
+                    Please enter the contact number of the company representative.
+                </div>
+<div class="alert alert-danger" *ngIf="companyRegistrationForm.get('company_representative_phone').hasError('pattern')
+                          && companyRegistrationForm.get('company_representative_phone').touched">
+                              Phone Number should be a minimum of 10 characters
+                              and can only consist of numbers and '+'.ie
+                              formats are 0201112223 or +233201112223
+                              <br>
+                              If you have more than one contact number,separate
+                              them by the '/' .ie  +233201112223/+233404535115
+
+
+                          </div>
+
+</div>
+
+
+
+
+        <br>
+        <br>
+        <br>
+
+        <button class="register-company btn btn-success"
+                                            [disabled]="companyRegistrationForm.controls.name?.errors
+                                            ||
+                                            companyRegistrationForm.controls.email.errors
+                                            ||
+                                            companyRegistrationForm.controls.phone.errors
+
+                                            ||
+                                            companyRegistrationForm.controls.location.get('name').errors
+
+                                            ||
+                                           registering_company
+                                            "
+            type="submit">Register Company</button>
+
+    <div [hidden]="!registering_company" class="alert alert-warning">Registering Your Company,
+        Please Wait...</div>
+        </div>
+
+    </form>
+
+</div>
+
+<div [hidden]="hide_order_student_form">
+
+<div *ngIf="main_departments">
+    <form [formGroup]="orderStudentForm" (ngSubmit)="submitOrder()">
+    <div formArrayName="mainDepartmentData">
+          <label>Please enter the number required per department.</label>
+
+          <table class="table">
+			  <thead>
+              <tr>
+                  <th><h4>Departments And Divisions</h4></th>
+              </tr>
+			  </thead>
+                  <tbody>
+
+      <tr *ngFor="let main_department of
+          orderStudentForm.controls.mainDepartmentData.controls; let i = index" [formGroupName]="i" >
+        <td><b>{{main_departments[i].name | titlecase}} Engineering</b>
+            </td>
+            <br>
+            <br>
+          <input formControlName="main_department_id" [hidden]="true"/>
+          <div formArrayName="subDepartmentData">
+            <div *ngFor="let sub_department of
+                main_department.controls.subDepartmentData.controls; let j = index" [formGroupName]="j">
+              <fieldset>
+                <label>{{main_departments[i].sub_departments[j].name}}</label>
+                                <td>Number Needed:    <input
+                                    formControlName="number_needed"
+                                    type="number" min=0 /></td>
+                                <br>
+                                
+                <input formControlName="sub_department_id" [hidden]="true">
+              </fieldset>
+            </div>
+          </div>
+
+                    </tr>
+          </table>
+
+
+    </div>
+    <div [hidden]="!placing_order_for_student" class="alert
+        alert-warning">Making Your Company's Order, Please Wait...</div>
+    <button class="submit-order-button btn btn-success"
+        [disabled]="placing_order_for_student" type="submit">Submit Order</button>
+    </form>
+    <br>
+
+</div>
+</div>

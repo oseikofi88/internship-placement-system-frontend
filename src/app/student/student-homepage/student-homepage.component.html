@@ -1,0 +1,38 @@
+ <!-- <div class="container"> -->
+<!-- <li></li> -->
+<!-- <li><a [routerLink]="['register']">Register</a></li> -->
+<!-- </div> -->
+
+<!-- <div class="container"> -->
+<!-- <router-outlet></router-outlet> -->
+<!-- </div> -->
+
+<!-- <div class="homepage"> -->
+	<div [hidden]="!homepage_caption" class="student-homepage-background-image">
+
+</div>
+
+<div class="row">
+
+<div  [hidden]="!homepage_caption" class="caption">    
+
+    <div class="text">        <h1>Hey There Engineer In The Making, Is This Your First Time Here?</h1>
+    </div>
+
+    <button (click)="signInPage()"class="btn  sign-in-button">I Have Been Here Before, Sign Me In. 
+    </button>
+
+    <button  (click)="registerPage()"class="btn register-button">This Is My First Time Here, Register. 
+    </button>
+
+</div>
+
+
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+

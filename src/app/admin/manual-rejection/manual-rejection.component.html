@@ -1,0 +1,100 @@
+<div class="alert alert-info" >
+    <form class="registration-form-wrapper"
+              [formGroup]="rejectPlacementForm"
+
+
+              (ngSubmit)="rejectStudents()" novalidate >
+
+                  <div formArrayName="studentsData">
+                      <div *ngFor="let student of
+                      rejectPlacementForm.controls.studentsData['controls']; let i = index" [formGroupName]="i">
+
+                          <div formArrayName="index_numberData">
+                              <button type="button" class="add-student btn btn-success"      (click)="addStudent(student.controls.index_numberData)">Add
+                                                    Student
+                              </button>
+                              <br>
+                              <br>
+
+
+                              <div  *ngFor="let i_d of
+                              student.controls.index_numberData.controls;
+                              let j = index "[formGroupName]="j">
+                                  <br>
+                                  <br>
+                                  <div class="remove-student" >
+                                    <textarea placeholder="Reason For Rejection" class="form-control" rows="1" id="comment"
+                                                 formControlName="reason_for_rejection"></textarea>
+                                      <input placeholder="Index Number" formControlName="index_number" />
+                                      <button  type="button"
+                                               (click)="removeStudent(student,j)"
+                                               class="btn
+                                               btn-primary">Remove Student
+                                      </button>
+
+                                  <br>
+                                  <br>
+                <span class="help-block"
+                      *ngIf="i_d.controls.index_number.errors?.required
+                      && i_d.controls.index_number.touched">
+                    Index Number Is Required!
+                </span>
+                <span class="help-block"
+                      *ngIf="i_d.controls.reason_for_rejection.errors?.required
+                      && i_d.controls.reason_for_rejection.touched">
+                    Reason Is Required!
+                </span>
+                <span class="help-block"
+                      *ngIf="i_d.controls.index_number.errors?.minlength
+                      && i_d.controls.index_number.touched">
+                    Index Number Should Not Be Less Than 7 In Number!
+                </span>
+
+                <span class="help-block"
+                      *ngIf="i_d.controls.index_number.errors?.maxlength
+                      && i_d.controls.index_number.touched">
+                    Index Number Should Not Be Greater Than 7 In Number!
+                </span>
+
+                <span class="help-block"
+                      *ngIf="i_d.controls.reason_for_rejection.errors?.maxlength
+                      && i_d.controls.reason_for_rejection.touched">
+                    Reason Summary , Not Reason Essay
+                </span>
+                <span class="help-block"
+                      *ngIf="i_d.controls.index_number.errors?.pattern
+                      && i_d.controls.index_number.touched">
+                     Index Number, Not Index Letters!
+                 </span>
+
+
+                                  </div>
+                                  <br>
+                              </div>
+
+                              <br>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+
+
+
+                      <button type="submit" class="reject-student btn btn-lg btn-warning"
+                                            [disabled]="rejectPlacementForm.invalid
+                                            || rejecting_students"
+                                            >Reject Placement</button>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+
+
+        </form>
+
+    </div>
+
+<div [hidden]="!rejecting_students" class="alert alert-warning">Rejecting Students
+    Placements,
+        Please Wait...</div>

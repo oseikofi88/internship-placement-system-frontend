@@ -1,0 +1,138 @@
+    <h4><u>Company Details</u></h4>
+<div class="loading-directions" *ngIf="loading_data">
+        <img src="../../../assets/img/loading_icon.gif" alt="" height="100" width="100">
+        <h5>Loading Data,Please Wait</h5>
+    </div>
+    <br>
+    <br>
+    
+
+<div [hidden]="hide_company_details" class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Company Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Location</th>
+      <th scope="col">Postal Address</th>
+      <th scope="col">Rep Name</th>
+      <th scope="col">Rep Email</th>
+      <th scope="col">Rep Phone</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="company_statistics">
+    <tr>
+        <td>{{company_statistics[0].name}}</td>
+        <td>{{company_statistics[0].email}}</td>
+        <td>{{company_statistics[0].phone}} </td>
+        <td><a style="cursor: pointer;"
+        (click)="showLocationDetail();myMap.triggerResize()">{{company_statistics[0].location.name}}</a> </td>
+        <td>{{company_statistics[0].postal_address}}</td>
+        <td>{{company_statistics[0].representative_name}}</td>
+        <td>{{company_statistics[0].representative_email}}</td>
+        <td>{{company_statistics[0].representative_phone}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<div [hidden]="hide_company_location" class="company-details">
+
+
+
+
+          <br>
+          
+
+
+
+
+
+    <div class="loading-directions" *ngIf="loading_directions">
+        <img src="../../../assets/img/loading_icon.gif" alt="" height="100" width="100">
+        <h5>Getting Directions To {{company_statistics[0].name | titlecase}} </h5>
+    </div>
+	<div *ngIf=" estimated_duration!= null &&
+    estimated_distance != null &&
+    loading_directions == false">
+		<h4> Estimated Driving Time to  The Company  is {{ estimated_duration}}</h4>
+		<h4>Estimated Driving Distance to The Company is {{ estimated_distance }} </h4>
+	</div>
+    <agm-map #myMap [latitude]="latitude"
+               [longitude]="longitude" [scrollwheel]="false"
+               [zoom]="zoom">
+                          <agm-marker
+                            [latitude]="latitude"
+                            [longitude]="longitude"></agm-marker>
+  <div>
+  <agm-directions  [origin]="origin" [destination]="destination" #test></agm-directions>
+  </div>
+</agm-map>
+
+
+          <br>
+          <br>
+          <br>
+          <br>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="slots-given" [hidden]="hide_slots_given" class="table-responsive-lm">
+
+<table *ngIf="slots_statistics" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Department</th>
+      <th scope="col">Slots</th>
+
+    </tr>
+  </thead>
+  <tbody *ngFor="let slot of slots_statistics ">
+    <tr>
+        <td>{{slot.name}}</td>
+        <td>{{slot.number_needed}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<div class="students-placed" [hidden]="hide_students_placed_in_company" class="table-responsive-lm">
+
+<table *ngIf="student_statistics" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Index Number</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Department</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Place Of Residence</th>
+      <th scope="col">Date Registered</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of student_statistics ">
+    <tr>
+        <td>{{student.index_number}}</td>
+        <td>{{student.surname}} {{ student.other_names}}</td>
+        <td>{{student.department}}</td>
+        <td>{{student.phone}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.location.name}}</td>
+        <td>{{student.time_of_registration}}</td>
+
+    </tr>
+  </tbody>
+</table>
+</div>

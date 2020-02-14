@@ -1,0 +1,27 @@
+    <h4><u>General Company Statistics</u></h4>
+<div class="loading-directions" *ngIf="loading_data">
+        <img src="../../../assets/img/loading_icon.gif" alt="" height="100" width="100">
+        <h5>Loading Data,Please Wait</h5>
+    </div>
+
+<div class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Department</th>
+      <th scope="col">Total Number of Companies Registered With Department</th>
+      <th scope="col">Total Number of Slots Given By Companies</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let statistics of company_statistics ">
+    <tr>
+      <td>{{statistics.sub_department}} ({{statistics.main_department}})</td>
+      <td>{{statistics.companies_registered}}</td>
+      <td>{{statistics.total_number_needed}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+</div>

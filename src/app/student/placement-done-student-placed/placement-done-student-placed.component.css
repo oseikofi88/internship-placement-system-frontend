@@ -1,0 +1,85 @@
+.content-body{
+    text-align:justify;
+   background-color:#fff; 
+   border-style:solid;
+   border-width:1px;
+   border-color:#C1C1C1;
+   padding:0px 10px 0px 10px;
+}
+
+.acceptance-text{
+white-space:normal;
+word-wrap: break-word;
+
+}
+
+.acceptance-letter-button{
+    background-color:transparent;
+    color:#3C763D;
+} 
+.alert{
+    text-align:center;
+    width:50%;
+    margin:0 auto;
+}
+
+.student-statistics{
+    float:left;
+    margin-left:30px;
+}
+
+.company-statistics{
+    float:right;
+    margin-right:30px;
+}
+.started-internship-button{
+    margin-top:-15px;
+    float:right;
+
+
+}
+.upload-confirmation-letter{
+    margin-top:-15px;
+    float:right;
+} 
+
+.letter-body{height: 842px;
+	width: 595px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.return-address{
+	margin-top: 2px;
+	margin-bottom: 2px;
+
+}
+.right{
+	float: right;
+}
+.left{
+	float: left;
+}
+
+
+.b {
+	clear: both;
+	font-weight: bold;
+	padding-top: 80px;
+}
+.divAdios {
+	float: right;
+	padding-top: 50px;
+}
+
+.content{
+	font-size: medium;
+}
+
+@media only screen and (max-width: 601px) {
+  div.space-for-mobile{
+      margin-bottom:30px;
+
+  }
+}
+
+

@@ -1,0 +1,148 @@
+<div *ngIf="student" class="">
+    <form *ngIf="student" [formGroup]="supervisorDetailsUpdateForm" (ngSubmit)="updateSupervisorDetails()"
+     novalidate>
+
+
+<div [ngClass]="{'has-error':supervisorDetailsUpdateForm.controls.supervisor_name?.touched && 
+                      supervisorDetailsUpdateForm.controls.supervisor_name?.errors,
+                      'has-success' :supervisorDetailsUpdateForm.controls.supervisor_name?.touched
+                      && supervisorDetailsUpdateForm.controls.supervisor_name?.valid }" 
+                  class="form-group row">
+
+                          <label for="supervisor_name" class="control-label col-sm-2
+                              col-form-label" >Supervisor Fullname:</label>
+
+                          <div class="col-sm-10">
+                              <input id="supervisor_name" class="form-control" type="text" name="supervisor_name" formControlName="supervisor_name">
+                          <span class=" help-block"*ngIf="supervisorDetailsUpdateForm.get('supervisor_name').hasError('required')
+                          && supervisorDetailsUpdateForm.get('supervisor_name').touched
+                          ">
+                             Please Enter Supervisor Fullname !
+                          </span>
+                      </div>
+                          </div>
+<div [ngClass]="{'has-error':supervisorDetailsUpdateForm.controls.supervisor_contact?.touched && 
+                      supervisorDetailsUpdateForm.controls.supervisor_contact?.errors,
+                      'has-success' :supervisorDetailsUpdateForm.controls.supervisor_contact?.touched
+                      && supervisorDetailsUpdateForm.controls.supervisor_contact?.valid }" 
+                  class="form-group row">
+
+                          <label for="supervisor_contact" class="control-label col-sm-2
+                              col-form-label" >Supervisor Contact:</label>
+
+                          <div class="col-sm-10">
+                              <input id="supervisor_contact"
+                              class="form-control" type="text"
+                              name="supervisor_contact"
+                               formControlName="supervisor_contact">
+                          <span class=" help-block"*ngIf="supervisorDetailsUpdateForm.get('supervisor_contact').hasError('required')
+                          && supervisorDetailsUpdateForm.get('supervisor_contact').touched
+                          ">
+                             Please Enter Supervisor Contact! </span>
+
+<span class=" help-block"*ngIf="supervisorDetailsUpdateForm.get('supervisor_contact').hasError('pattern')
+                          && supervisorDetailsUpdateForm.get('supervisor_contact').touched">
+                              Phone Number should be a minimum of 10 characters
+
+                          </span>
+
+                          
+                      </div>
+                          </div>
+
+
+<div [ngClass]="{'has-error':supervisorDetailsUpdateForm.controls.supervisor_email?.touched && 
+                      supervisorDetailsUpdateForm.controls.supervisor_email?.errors,
+                      'has-success' :supervisorDetailsUpdateForm.controls.supervisor_email?.touched
+                      && supervisorDetailsUpdateForm.controls.supervisor_email?.valid }" 
+                  class="form-group row">
+
+                          <label for="supervisor_email" class="control-label col-sm-2
+                              col-form-label" >Supervisor Email:</label>
+
+                          <div class="col-sm-10">
+                              <input id="supervisor_email" class="form-control"
+                                                           type="text"
+                                                           name="supervisor_email"
+                                                            formControlName="supervisor_email">
+                          <span class=" help-block"*ngIf="supervisorDetailsUpdateForm.get('supervisor_email').hasError('required')
+                          && supervisorDetailsUpdateForm.get('supervisor_email').touched
+                          ">
+                              Please Enter Supervisor Email! 
+                          </span>
+<span class=" help-block"*ngIf="
+                          supervisorDetailsUpdateForm.get('supervisor_email').touched
+                          && supervisorDetailsUpdateForm.get('supervisor_email').errors
+                          && supervisorDetailsUpdateForm.get('supervisor_email').errors.incorrectMailFormat">
+                             Please Enter A Valid Email! 
+                          </span>
+                      </div>
+                          </div>
+
+
+
+
+
+
+<div *ngIf="!company_location_updated">
+
+            <h5>The location of the company has not
+                been updated , you can update it if have
+                been there and  you know
+                the precise location of the company to
+                enable other students and your internship
+                coordinators find it with ease.
+                <br> 
+                <button class="update-location-btn btn btn-info" type="button" (click)="studentWantsToUpdateCompanyLocation()">Yes I want to Update the Company Location</button>
+
+
+            </h5>
+            <div *ngIf="!company_location_updated && student_wants_to_update_company_location">
+                <h5>
+                    <br> 
+                    <br> 
+
+                    Simply drag the marker to the precise
+                    location of the company.
+                </h5>
+                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+
+                    <agm-marker [latitude]="latitude" [longitude]="longitude"
+                        [markerDraggable]="draggable" (dragEnd)="pos($event)"
+                        
+                        ></agm-marker>
+
+
+                </agm-map>
+                
+        <div formGroupName="company_location">
+                    <h5> Dont worry about this value </h5> 
+                <label> New Company Location Address </label>
+                <input id="address" class="form-control" type="text" name="address" value="{{updated_company_address}}" readonly
+                                                                           formControlName="address">
+                <!-- <label> New Company Location Latitude</label> -->
+                <!-- <input id="latitude" class="form-control" type="text" name="latitude" value="{{updated_company_latitude}}" readonly -->
+                <!--                                                            formControlName="latitude"> -->
+                <!-- <label> New Company Location Longitude</label> -->
+                <!-- <input id="longitude" class="form-control" type="text" name="longitude" value="{{updated_company_longitude}}" readonly -->
+                                                                           <!-- formControlName="longitude"> -->
+                </div>
+
+
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        
+    <div [hidden]="!updating_details" class="alert alert-warning">Updating
+        Details Please Wait...</div>
+        <button
+            [disabled]="supervisorDetailsUpdateForm.controls.supervisor_name?.errors
+            || supervisorDetailsUpdateForm.controls.supervisor_contact?.errors
+            || supervisorDetailsUpdateForm.controls.supervisor_email?.errors
+            || updating_details 
+            " class="update-details-btn btn btn-success" type="submit">Update Details</button>
+    </form>
+</div>

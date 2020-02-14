@@ -1,0 +1,30 @@
+<div class="background-container">
+    
+    <div class="std-background">
+<form  [formGroup]="loginForm"
+     class="login-form-wrapper"
+(ngSubmit)="loginCompany()"  novalidate > 
+        <div class="form-group">
+            <label for="company_id">
+           Company ID
+           <br>
+           (This is the ID we sent to your email )
+</label>
+           
+            <input id="company_id" class="form-control" type="text" name="company_id" formControlName="company_id">
+        </div>
+        <div class="form-group">
+            <label for="password">
+           Password                       
+<br>
+(This is the password we sent to your email)
+            <input id="password" class="form-control" type="PASSWORD" name="password" formControlName="password">
+            </label>
+        </div>
+
+		<button class="login-button btn btn-default" type="submit">Login</button>
+    </form>
+
+	
+</div>
+</div>

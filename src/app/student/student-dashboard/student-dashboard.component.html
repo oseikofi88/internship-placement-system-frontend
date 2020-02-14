@@ -1,0 +1,181 @@
+<div *ngIf="student" class="wrapper">
+            <nav id="sidebar" [class.active]="hide_sidebar">
+                <div class="sidebar-header">
+                        <img class="coe-logo"
+                             src="../../../assets/img/coe-logo.png">
+                    <h3>COE-IPS</h3>
+                    <hr class="header-line divider">
+                </div>
+
+                <ul class="list-unstyled components">
+                    <div class="profile-block">
+                        <img class="profile-picture" src="../../../assets/img/user.png"
+                        ><h6> {{ student[0].surname | titlecase}} </h6></div>
+                    <br>
+                    <br>
+                    
+
+                    <hr class="header-line divider">
+                    <div class="sidebar-components">
+                        <h5>   <li> 
+                                <a style="cursor: pointer;" (click)="checkPlacementStatus()">
+                                    <span class="glyphicon
+                                    glyphicon-inbox"></span>
+                                    Placement Status</a>
+                            </li>
+                        </h5>
+                            <br>
+                            <h5>
+
+                        <li>
+                        <a [routerLink]="['company-details']"> 
+                                <span class="glyphicon
+                                               glyphicon-calendar"></span>
+                                           Company Details</a>
+                    </li>
+                    </h5>
+                    <br>
+                    <li>
+                    
+                        <h5>     <a [routerLink]="['social']">
+
+                                        
+                                              <span class="glyphicon
+                                               glyphicon-hdd"></span>
+                                           Social</a></h5>
+                    </li>
+                    <br>
+                    <li>
+                        <h5>     <a [routerLink]="['contact']">
+                                              <span class="glyphicon
+                                               glyphicon-earphone"></span>
+                                           Contact</a></h5>
+                    </li>
+                    </div>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- Page Content Holder -->
+            <div id="content" [class.active]="hide_sidebar">
+
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" (click)=hideSidebar() class="btn navbar-btn">
+                                <i class="glyphicon glyphicon-menu-hamburger"
+                                    ></i>
+                            </button>
+                        </div>
+
+                        <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-envelope"></span></a>
+
+        <ul class="dropdown-menu">
+          <li> <a style="cursor: pointer;">No new Messages</a></li>
+        </ul>
+      </li>
+<li class="dropdown"><a class="dropdown-toggle"
+        data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
+
+        <ul class="dropdown-menu">
+          <li><a style="cursor: pointer;"> No new Notification</a></li>
+        </ul>
+      </li>
+<li class="dropdown"><a class="dropdown-toggle"
+        data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
+
+        <ul class="dropdown-menu">
+<li>
+                        <a [routerLink]="['edit-profile']"> 
+                                           Edit Profile</a>
+                    </li>
+          <li [class.search-dropdown-tabs-active] ="true">
+<a style="cursor: pointer;"  (click)="logout()">Logout</a> 
+</li>
+        </ul>
+      </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+ 
+                <div>
+                    <br>
+                    <router-outlet></router-outlet>
+            </div>
+        </div>
+</div>
+
+
+
+
+<!-- <nav class="navbar navbar-default"> <div class="container-fluid"> -->
+<!-- 		<div class="navbar-header">Student Dashboard<a ></a></div> -->
+<!-- 		<ul class="nav navbar-nav navbar-right"> -->
+<!--                 <li><a -->
+<!--       >Messages -->
+<!--                     </a></li> -->
+<!--                 <li><a -->
+<!--               >Notifications</a></li> -->
+<!--                 <li><a -->
+<!--               >Profile</a></li> -->
+<!--             </ul> -->
+
+<!--         <button (click)="logout()">Logout</button> -->
+<!--         </div> -->
+<!--     </nav> -->
+
+<!--     <div> -->
+<!--         <div id="sidebar-wrapper" class="col-md-2"> -->
+<!--             <div> -->
+<!--                 <ul class="nav list-group"> -->
+<!-- <li ><a (click)="checkPlacementStatus()"> -->
+<!--                     Placement -->
+<!--                     Status</a> -->
+<!--                </li> -->
+
+<!--                     <li><a class="list-group-item" [routerLink]="['company-details']">Company -->
+<!--                         Details -->
+<!-- </a></li> -->
+<!--                     <li><a class="list-group-item" -->
+<!--                             [routerLink]="['social']">Social</a></li> -->
+<!--                 </ul> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+
+
+
+<!-- <div *ngIf="student" class="div"> -->
+<!--     {{ student[0].surname}} -->
+
+<!--  <router-outlet></router-outlet> -->
+<!-- <div hidden="hide_company_status"  *ngIf="student" class="div"> -->
+<!--  </div> -->
+<!--  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

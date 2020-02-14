@@ -1,0 +1,96 @@
+<div class="student-login-background-image ">
+</div>
+<div class="row">
+    <div class="col-lg-6" class="wrapper">
+        <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="loginStudent()"
+            novalidate>
+            <div [hidden]="show_reset_password_form">
+
+                <div [ngClass]="{'has-error':loginForm.controls.index_number?.touched && 
+                      loginForm.controls.index_number?.errors,
+                      'has-success' :loginForm.controls.index_number?.touched
+                      && loginForm.controls.index_number?.valid }">
+                    <div class="form-group">
+                        <input id="index_number" class="form-control " type="text" name="index_number"
+                            placeholder="Index Number" formControlName="index_number">
+                        <span class=" help-block" *ngIf="  loginForm.get('index_number').errors
+
+&& loginForm.get('index_number').errors.not_registered
+&&
+loginForm.get('index_number').touched">
+
+                       This Index Number Has Not Been Registered
+                    </span>
+                        <span class=" help-block" *ngIf="  loginForm.get('index_number').errors
+
+&& loginForm.get('index_number').hasError('minlength')
+
+|| loginForm.get('index_number').hasError('maxlength')
+
+
+
+&& 
+loginForm.controls.index_number?.touched">
+
+                      Invalid Index Number 
+                    </span>
+                        <span class="checking help-block" *ngIf="loginForm.get('index_number').status === 'PENDING'">
+                        Checking...
+                    </span> </div>
+                    <div class="form-group">
+                        <input id="password" class="form-control " type="PASSWORD" name="password" placeholder="Password"
+                            formControlName="password">
+                    </div>
+
+                    <div [hidden]="incorrect_credentials_alert ||
+loginForm.controls.index_number.dirty" class=" wrong-credentials alert alert-danger"
+                        role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span> Index Number and password
+                        do not match!
+                    </div>
+                    <button class="btn login-button" type="submit" [disabled]="loginForm.controls.index_number?.errors
+                                                ||
+                                                loginForm.controls.password?.errors 
+                                                ||  !logging_in
+                                                ">Login</button>
+                    <button (click)="forgotPassword()" class="btn reset-password-button">Forgot Password?</button>
+                    <br>
+                    <br>
+
+                    <div [hidden]="logging_in" class="alert alert-warning">
+                        Logging In,Please Be Patient...</div>
+
+                </div>
+            </div>
+            <div [hidden]="!show_reset_password_form">
+                <div class="form-group">
+                    <input id="email" class="form-control " type="text" name="email" placeholder="Email"
+                        formControlName="email">
+                </div>
+                <div [hidden]="!sending_email" class="alert alert-warning">Sending Recovery Link To Email...</div>
+                <button (click)="back()" class="btn login-button" type="button">Back</button>
+                <button (click)="resetPassword()" class="btn reset-password-button" [disabled]="loginForm.controls.email?.errors ||
+                                    sending_email">Reset Password</button>
+
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+    <!-- <div class="dropdown"> -->
+    <!--   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> -->
+    <!--     Dropdown -->
+    <!--     <span class="caret"></span> -->
+    <!--   </button> -->
+    <!--   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1"> -->
+    <!--     <li><a href="#">Action</a></li> -->
+    <!--     <li><a href="#">Another action</a></li> -->
+    <!--     <li><a href="#">Something else here</a></li> -->
+    <!--     <li role="separator" class="divider"></li> -->
+    <!--     <li><a href="#">Separated link</a></li> -->
+    <!--   </ul> -->
+    <!-- </div> -->

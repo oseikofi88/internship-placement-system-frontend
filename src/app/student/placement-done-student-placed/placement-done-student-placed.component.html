@@ -1,0 +1,223 @@
+<div class="content-body">                
+    <div [hidden]=hide_content>
+        
+        <div *ngIf="student" class="alert alert-success" role="alert">
+            <h4 class="acceptance-text">{{student[0].surname | titlecase}} {{student[0].other_names |
+                titlecase}} you have been
+                placed at {{student[0].company.name | titlecase}} </h4>
+                <button type="button" (click)="getAcceptanceLetter()"
+                    class="acceptance-letter-button btn btn-default">Get 
+                    Acceptance Letter</button>
+                    </div>
+                   <h4> Please Read The Following Instructions Carefully </h4>
+                <p>
+
+                1.You need to download the acceptance letter from this page and send it to the
+                company you have been posted.
+                <br>
+                <br>
+                
+                2.You need to present this letter to the HR of the company to prove that
+                you were posted over there.
+                <br>
+                <br>
+                3.Even though officially, you are supposed to start the your vacation training
+                on the 4th of June, {{year}}, the HR of the company will notify you on the time to
+                start which can be earlier or later.
+                <br>
+                <br>
+                4.You can click on the company details on the side bar to view any available
+                details of the company you have been placed in.
+<br>
+                <br>
+                5.Click on the get appraisal forms & logsheets button below to get access
+                to your appraisal and logsheets. 
+                <br>
+                <br>
+					
+                6. On the very first day you report to your company to start
+                your internship, click on the "I Have Started Internship"
+                button.This will record the time you started and will be used
+                to verify the duration of your internship.
+                <br>
+                <br>
+
+
+                </p>
+                        <div [hidden]="!upload_acceptance_letter_instruction
+                            ">         
+                7.If as of the time you were registering your company, your
+                confirmation letter was not ready but you have it now, click 
+                    <a style="cursor: pointer;"
+                        (click)="uploadConfirmationLetter()">HERE</a>
+
+                    </div>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <b>If for some reason you cannot intern in the company you have
+                been placed by the college,Click 
+                    <a style="cursor: pointer;"
+                        (click)="reasonForRejection()">HERE</a>(This will undo
+                    where you have been currently placed to enable you
+                    register the new company you would like to intern with.Please inform your department coordinator first before carrying out this function)</b>
+                <br>
+                <br>
+				<div *ngIf="student_rejecting_placement">
+
+    <form class="registration-form-wrapper"
+              [formGroup]="rejectPlacementForm"
+
+
+              (ngSubmit)="rejectPlacement()" novalidate >
+
+                            <textarea placeholder="Reason for not being able to intern in company given by college" class="form-control" rows="1" id="comment"
+                                                 formControlName="reason_for_rejection"></textarea>
+                            <br>
+                            <button  type="submit"
+                                            [disabled]="rejectPlacementForm.invalid
+                                            || rejecting_placement "
+                                               class="btn
+                                               btn-primary">Proceed
+                                      </button>
+                                      <div *ngIf="rejecting_placement" class="alert alert-info">Please wait
+                                          while we complete your request.
+                                      </div>
+                            </form>
+				</div>
+				<br>
+				<br>
+				<br>
+				
+                <button type="button" (click)="getInternshipForms()"
+                    class="started-intership-button btn btn-success"> Get
+                    Appraisal and Logsheet Forms
+                    </button>
+                    <div class="space-for-mobile"></div>
+
+                        <div [hidden]="started_internship_button">         
+                <button  type="button" (click)="startedInternship()"
+                    class="started-internship-button btn btn-danger">I Have
+                    Started Internship. 
+                    </button>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        
+                        
+                        
+                        <div [hidden]="!upload_acceptance_letter_button
+                            ">         
+                            <button  type="button"
+                                     (click)="showUploadLetterForm()"
+                                     class="upload-confirmation-letter btn
+                                     btn-danger">Upload Confirmation Letter
+                            </button>
+
+                            <div [hidden]="upload_form">
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                
+<div class="right form-group">
+    <form [formGroup]="acceptanceLetterForm" >
+            <label for="website">Softcopy Of
+                Confirmation Letter Given To You By
+            Company</label>
+            <input  type="file" 
+                                acceptance_letter="acceptance_letter"
+
+                    id="acceptance_letter" 
+(change)="fileChange($event)" 
+                                           placeholder="Upload
+                                           Acceptance
+                                           "
+                                           accept="image/*,.pdf">
+<button  type="button" [disabled]="acceptanceLetterForm.invalid"
+                                     (click)="uploadAcceptanceLetter()"
+                                     class="reject-placement-button btn
+                                     btn-warning">Upload Confirmation Letter
+                            </button>
+                            </form>
+
+        </div>
+
+                            </div>
+
+
+                        </div>
+                        <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="line"></div>
+</div>
+
+
+
+</div>
+
+<!-- <div *ngIf = "student" id="main-wrapper" class="col-md-10 pull-right"> -->
+    
+<!--     <div id="main"> -->
+<!--             <div class="page-header"> -->
+<!--                 <h3>Company Details</h3> -->
+<!--             </div> -->
+
+<!--             <div -->
+<!--                 *ngIf="student[0]?.registered_company -->
+<!--                 == false"> -->
+<!--             <div *ngIf="student[0]?.supervisor_name == null"> -->
+<!--                 <ul class="nav list-group"> -->
+<!--                     <li><a class="list-group-item" -->
+<!--                             [routerLink]="['student-has-started-internship']"> -->
+<!--                         I Have Started The -->
+<!--                         Internship -->
+<!--                         </a></li> -->
+<!--                 </ul> -->
+<!--             </div> -->
+<!--             </div> -->
+            
+<!--              <p > -->
+
+
+<!-- 			</p> -->
+<!--             <br> -->
+
+
+
+<!--             <br> -->
+<!--             instructions -->
+<!--  <br> -->
+<!-- 			hello you have been placed at  {{  student[0]?.company.name }} -->
+<!-- 			kindly download the intro letter and send it to the company -->
+
+
+<!--             <br> -->
+<!--             <br> -->
+<!--     <button (click)="print()">Print intro letter</button> -->
+<!--             <br> -->
+<!--             <br> -->
+            <!-- <div -->
+            <!--     *ngIf="student[0]?.registered_company -->
+            <!--     == false"> -->
+            <!-- <br> -->
+				<!-- you can also reject the placement if you do not like and already -->
+				<!-- have a company on your own, rejecting means you wont be given -->
+				<!-- another company by the school and you have to search for your -->
+				<!-- own. -->
+            <!-- <br> -->
+			<!-- <button (click)="rejectPlacement()">Reject placement </button> -->
+
+
+        <!-- </div> -->
+<!--         </div> -->
+<!--     </div> -->
+
+
+

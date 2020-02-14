@@ -1,0 +1,154 @@
+<div class="content-body">
+
+    <div *ngIf = "company" id="main-wrapper"> 
+
+
+
+
+    
+<div *ngIf="main_departments" [hidden]="order_form"
+    >
+    <form [formGroup]="orderStudentForm" (ngSubmit)="submitOrder()">
+    <div formArrayName="mainDepartmentData">
+          <label>Please enter the number required per department.</label>
+
+          <table class="table">
+			  <thead>
+              <tr>
+                  <th><h4>Departments And Divisions</h4></th>
+              </tr>
+			  </thead>
+                  <tbody>
+
+      <tr *ngFor="let main_department of
+          orderStudentForm.controls.mainDepartmentData.controls; let i = index" [formGroupName]="i" >
+        <td><b>{{main_departments[i].name | titlecase}} Engineering</b>
+            </td>
+            <br>
+            <br>
+          <input formControlName="main_department_id" [hidden]="true"/>
+          <div formArrayName="subDepartmentData">
+            <div *ngFor="let sub_department of
+                main_department.controls.subDepartmentData.controls; let j = index" [formGroupName]="j">
+              <fieldset>
+                <label>{{main_departments[i].sub_departments[j].name}}</label>
+                                <td>Number Needed:    <input
+                                    formControlName="number_needed"
+                                    type="number" min=0 /></td>
+                                <br>
+                                
+                <input formControlName="sub_department_id" [hidden]="true">
+              </fieldset>
+            </div>
+          </div>
+
+                    </tr>
+          </table>
+
+
+    </div>
+
+    <div [hidden]="!placing_order_for_student" class="alert
+        alert-warning">Making Your Company's Order, Please Wait...</div>
+
+    <button [disabled]="placing_order_for_student"  class="submit-order-button btn btn-success" type="submit">Submit Order</button>   </form>
+    <br>
+
+</div>
+
+<br>
+
+
+<div [hidden]="!order_form">
+<div [hidden]="placement_done" >
+   <h4>Your Company has successfully ordered
+       for students.
+       
+       
+       
+   </h4>
+<p><br><br>
+        &#9658; The college would like to thank you for giving students 
+        opportunity to intern with your firm.
+       <br><br>
+      &#9658; Placement of students to registered companies has
+       not been done yet.
+       <br><br>
+       &#9658;If the placement is done,you will recieve an email notification
+       that placement has been done.
+       <br><br>
+       &#9658;You can click on the view student details to see students
+       posted to your company after placement is done
+       <br><br>
+       
+
+   </p>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   
+</div>
+
+<div [hidden]="!placement_done">
+   <h4>Your company has successfully ordered
+       for students.
+       
+       
+       
+   </h4>
+<p><br><br>
+        &#9658; The college would like to thank you for giving students 
+        opportunity to intern with your firm.
+       <br><br>
+      &#9658; Placement of students to registered companies has
+       been done.
+       <br><br>
+       &#9658;You can click on the view student details to see students
+       posted to your company. 
+       <br><br>
+       
+
+   </p>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   
+</div>
+
+</div>
+</div>
+</div>

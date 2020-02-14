@@ -1,0 +1,17 @@
+	<div [hidden]="!homepage_caption" class="company-homepage-background-image">
+
+</div>
+
+<div  [hidden]="!homepage_caption" class="caption">    
+
+    <div class="text">        <h1>Hello Company Representative, Is This Your First Time Here?</h1>
+    </div>
+
+    <button (click)="signInPage()"class="btn  sign-in-button">I Have Been Here Before, Sign In. 
+    </button>
+
+    <button  (click)="registerPage()"class="btn register-button">This Is My First Time Here, Register. 
+    </button>
+
+</div>
+<router-outlet></router-outlet>

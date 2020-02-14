@@ -1,0 +1,479 @@
+<div *ngIf="student" class="content-body">                
+
+<div [hidden]="company_registration_form">
+<!-- <button (click)="goBackToDashboard()"class="back-button btn btn-small btn-default"><span class="glyphicon glyphicon-arrow-left"></span> --> 
+<!--     Back -->
+<!-- </button> -->
+
+    <form 
+
+     [formGroup]="studentCompanyRegistrationForm"
+     (ngSubmit)="registerCompany()"
+     novalidate>
+
+    <h4>
+<p>
+Please make sure you enter the correct details as your coordinators will visit
+your company in the course of your training period. 
+</p>
+</h4>
+
+<br>
+<br>
+
+
+<div [ngClass]="{'has-error':studentCompanyRegistrationForm.controls.name?.touched && studentCompanyRegistrationForm.controls.name?.errors,
+                      'has-success'
+                      :studentCompanyRegistrationForm.controls.name?.touched
+                      && studentCompanyRegistrationForm.controls.name?.valid }" 
+                  class="form-group row">
+
+                          <label for="company_name" class="control-label col-sm-2
+                              col-form-label" >Company Name:</label>
+
+                          <div class="col-sm-10">
+                              <input id="_name" class="form-control"
+                              type="text" formControlName="name">
+                          <span class="
+                          help-block"*ngIf="studentCompanyRegistrationForm.get('name').hasError('required')
+                          && studentCompanyRegistrationForm.get('name').touched
+                          ">
+                              Name Of Company Is Required!
+                          </span>
+
+                      </div>
+                          </div>
+
+<div [ngClass]="{'has-error':studentCompanyRegistrationForm.controls.email?.touched && 
+                      studentCompanyRegistrationForm.controls.email?.errors,
+                      'has-success'
+                      :studentCompanyRegistrationForm.controls.email?.touched
+                      && studentCompanyRegistrationForm.controls.email?.valid }" 
+                  class="form-group row">
+
+                          <label for="company_email" class="control-label col-sm-2
+                              col-form-label" >Company Email If Any:</label>
+
+                          <div class="col-sm-10">
+                              <input id="email" class="form-control"
+                              type="text"  formControlName="email">
+                          <!-- <span class=" -->
+                          <!-- help-block"*ngIf="studentCompanyRegistrationForm.get('email').hasError('required') -->
+                          <!-- && studentCompanyRegistrationForm.get('email').touched -->
+                          <!-- "> -->
+                          <!--     Email Of Company Is Required! -->
+                          <!-- </span> -->
+
+<span class="
+                          help-block"*ngIf="studentCompanyRegistrationForm.get('email').errors
+                          &&
+                          studentCompanyRegistrationForm.get('email').errors.incorrectMailFormat
+
+                          && studentCompanyRegistrationForm.get('email').touched
+                          ">
+                              Please Enter A Valid Email
+                          </span>
+
+                      </div>
+                          </div>
+        
+        
+        <div [ngClass]="{'has-error':studentCompanyRegistrationForm.controls.phone?.touched && 
+                      studentCompanyRegistrationForm.controls.phone?.errors,
+                      'has-success'
+                      :studentCompanyRegistrationForm.controls.phone?.touched
+                      && studentCompanyRegistrationForm.controls.phone?.valid }" 
+                  class="form-group row">
+
+                          <label for="company_phone" class="control-label col-sm-2
+                              col-form-label" >Contact Number If Any:</label>
+
+                          <div class="col-sm-10">
+                              <input id="phone" class="form-control"
+                              type="text" phone="phone" formControlName="phone">
+                          <!-- <span class=" -->
+                          <!-- help-block"*ngIf="studentCompanyRegistrationForm.get('phone').hasError('required') -->
+                          <!-- && studentCompanyRegistrationForm.get('phone').touched -->
+                          <!-- "> -->
+                          <!--     Contact Number Of Company Is Required! -->
+                          <!-- </span> -->
+
+<span class="
+                          help-block"*ngIf="studentCompanyRegistrationForm.get('phone').hasError('pattern')
+
+                          && studentCompanyRegistrationForm.get('phone').touched
+                          ">
+                              Please Enter A Valid Phone!
+                          </span>
+
+                      </div>
+                          </div>
+        <div class="form-group">
+            <label for="postal_address">Post Address Of Company If Any</label>
+            <input id="postal_address" class="form-control" type="text" postal_address="postal_address"
+                                                                         formControlName="postal_address">
+        </div>
+
+        <div class="form-group">
+            <label for="website">Website Address If Any</label>
+            <input id="website" class="form-control" type="text" website="website"
+                                                                         formControlName="website">
+        </div>
+
+        <div class="form-group">
+            <label for="website">Softcopy Of
+                Confirmation Letter Given To You By
+            Company</label>
+            <input  type="file"
+                    id="acceptance_letter" acceptance_letter="acceptance_letter"
+(change)="fileChange($event)" [disabled]=acceptance_letter_available
+                                           placeholder="Upload
+                                           Acceptance
+                                           "
+                                           accept="image/*,.pdf">
+
+
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input (change)="acceptanceLetterUnavailable()" type="checkbox"
+                                                                [disabled]=acceptance_letter_unavailable> I Dont Have A Softcopy Of The Letter
+                Now, I Will
+                Upload It When I Get It.
+                
+            </label>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+
+<div formGroupName="location" >
+                                     <label  for="location">Name of Company
+                                         Location Eg
+                                     Ayeduase</label>
+                          <input type="text"
+                                                  class="location-input form-control"
+                                 formControlName="name"
+                                             >
+
+
+                          <div class=" help-block"
+                      *ngIf="studentCompanyRegistrationForm.get('location').get('name').touched &&
+                      studentCompanyRegistrationForm.get('location').get('name').hasError('required')"
+                        >Name Is Required!
+                      </div>
+
+
+                                     <label  for="location">Landmark to Make Company
+                                         Location Be Easily Identified Eg Close to Continental
+                                         Hostel 
+                                     </label>
+                          <input type="text"
+                                                  class="location-input form-control"
+                                 formControlName="address"
+                                             >
+
+
+                          <div class=" help-block"
+                      *ngIf="studentCompanyRegistrationForm.get('location').get('address').touched &&
+                      studentCompanyRegistrationForm.get('location').get('address').hasError('required')"
+                        >Required!
+                      </div>
+
+
+
+                                     <label  for="location">District Of Company
+                                         Location Eg 
+                                     Kumasi Metropolitan</label>
+                          <input type="text"
+                                                  class="location-input form-control"
+                                 formControlName="district"
+                                             >
+
+
+                          <div class=" help-block"
+                      *ngIf="studentCompanyRegistrationForm.get('location').get('district').touched &&
+                      studentCompanyRegistrationForm.get('location').get('district').hasError('required')"
+                        >District Is Required!
+                      </div>
+
+                                     <label  for="location">Region of Of
+                                         Company Location Eg
+                                     Ashanti</label>
+                          <input type="text"
+                                                  class="location-input form-control"
+                                 formControlName="region"
+                                             >
+
+
+                          <div class=" help-block"
+                      *ngIf="studentCompanyRegistrationForm.get('location').get('region').touched &&
+                      studentCompanyRegistrationForm.get('location').get('region').hasError('required')"
+                        >Region Is Required!
+                      </div>
+
+
+
+
+
+<!-- <div> -->
+
+<!--                             <agm-map #myMap [latitude]="latitude" -->
+<!--                                  [longitude]="longitude" -->
+<!--                                  [scrollwheel]="false" [zoom]="zoom"> -->
+<!--                           <agm-marker -->
+<!--                             [latitude]="latitude" -->
+<!--                             [longitude]="longitude"></agm-marker> -->
+<!--                         </agm-map> -->
+<!--                         </div> -->
+
+                      </div>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      
+
+                      <div>
+
+                                     <label  for="location">Company
+                                         Representative 
+                                     Name </label>
+                          <input type="text"
+                                                  class="location-input form-control"
+                                 formControlName="company_representative_name"
+                                             >
+
+                                     <label  for="location">Company
+                                         Representative 
+                                     Email</label>
+                          <input type="text"
+                                                  class="location-input form-control"
+                                 formControlName="company_representative_email"
+                                             >
+
+
+                                     <label  for="location">Company
+                                         Representative 
+                                     Phone</label>
+                          <input type="text"
+                                                  class="location-input form-control"
+                                 formControlName="company_representative_phone"
+                                             >
+
+
+</div>
+
+
+        
+        <!-- <div> -->
+        <!--     <div> -->
+        <!--         <h4> -->
+        <!--             <br> -->
+
+        <!--             Select the location of the company by simply dragging the marker to the precise -->
+        <!--             location of the company. -->
+        <!--         </h4> -->
+        <!--         <agm-map [latitude]="obtained_latitude" [longitude]="obtained_longitude" [scrollwheel]="false" [zoom]="zoom"> -->
+
+        <!--             <agm-marker [latitude]="obtained_latitude" [longitude]="obtained_longitude" -->
+        <!--                 [markerDraggable]="draggable" (dragEnd)="pos($event)" -->
+
+        <!--                 ></agm-marker> -->
+
+
+        <!--         </agm-map> -->
+
+        <!-- <div formGroupName="location"> -->
+        <!--             <h5> Dont worry about this value</h5> -->
+
+
+        <!--         <label>   Company Location Name</label> -->
+        <!--         <input id="name" class="form-control" type="text" name="name" value="{{obtained_name}}" readonly -->
+        <!--                                                                    formControlName="name"> -->
+        <!--         <1!-- <label>   Company Location Address </label> --1> -->
+        <!--         <1!-- <input id="address" class="form-control" type="text" name="address" value="{{obtained_address}}" readonly --1> -->
+        <!--         <1!--                                                            formControlName="address"> --1> -->
+        <!--         <1!-- <label>   Company Location Latitude</label> --1> -->
+        <!--         <1!-- <input id="latitude" class="form-control" type="text" name="latitude" value="{{obtained_latitude}}" readonly --1> -->
+        <!--         <1!--                                                            formControlName="latitude"> --1> -->
+        <!--         <1!-- <label>   Company Location Longitude</label> --1> -->
+        <!--         <1!-- <input id="longitude" class="form-control" type="text" name="longitude" value="{{obtained_longitude}}" readonly --1> -->
+        <!--         <1!--                                                            formControlName="longitude"> --1> -->
+        <!--         </div> -->
+
+
+
+        <!--     </div> -->
+        <!-- </div> -->
+        <br>
+        <br>
+        <br>
+        
+        <button class="register-company-button btn btn-success"
+            type="submit"
+           [disabled]="studentCompanyRegistrationForm.controls.name?.errors
+                                            ||
+                                            studentCompanyRegistrationForm.controls.email.errors
+                                            ||
+                                            studentCompanyRegistrationForm.controls.phone.errors
+
+                                            ||
+                                            studentCompanyRegistrationForm.controls.location.get('name').errors
+
+                                            ||
+                                            studentCompanyRegistrationForm.controls.location.get('address').errors
+
+                                            ||
+                                            studentCompanyRegistrationForm.controls.location.get('district').errors
+
+                                            ||
+                                            studentCompanyRegistrationForm.controls.location.get('region').errors
+
+                                            ||
+                                            acceptance_letter_error
+                                            ||
+                                           registering_company " 
+            
+            
+            >Register Company</button>
+
+    <div [hidden]="!registering_company" class="alert alert-warning">Registering Your Company,
+        Please Wait...</div>
+
+    </form>
+
+
+</div>
+
+
+
+
+<div [hidden]=want_more_or_not_selection class="want-more-or-not-buttons">
+    <br>
+    <br>
+    <h4>Does Company Want More Interns</h4>
+    <br>
+    <br>
+    <br>
+    
+
+    <button  (click)="companyWantMoreStudents()" class="company-want-more-button btn btn-info">Yes Company Wants More Interns</button>
+
+    <button (click)="companyDoNotWantMoreStudents()" class="company-dont-want-more-button btn btn-info">No Company Do
+        Not Want More Interns</button>
+
+    <br>
+    <br>
+    <br>
+</div>
+
+
+
+<div *ngIf="main_departments" [hidden]="show_order_form"
+    >
+    <form [formGroup]="orderStudentForm" (ngSubmit)="submitOrder()">
+    <div formArrayName="mainDepartmentData">
+          <label>Please enter the number required per department.</label>
+
+          <table class="table">
+			  <thead>
+              <tr>
+                  <th><h4>Departments And Divisions</h4></th>
+              </tr>
+			  </thead>
+                  <tbody>
+
+      <tr *ngFor="let main_department of
+          orderStudentForm.controls.mainDepartmentData.controls; let i = index" [formGroupName]="i" >
+        <td><b>{{main_departments[i].name | titlecase}} Engineering</b>
+            </td>
+            <br>
+            <br>
+          <input formControlName="main_department_id" [hidden]="true"/>
+          <div formArrayName="subDepartmentData">
+            <div *ngFor="let sub_department of
+                main_department.controls.subDepartmentData.controls; let j = index" [formGroupName]="j">
+              <fieldset>
+                <label>{{main_departments[i].sub_departments[j].name}}</label>
+                                <td>Number Needed:    <input
+                                    formControlName="number_needed"
+                                    type="number" min=0 /></td>
+                                <br>
+                                
+                <input formControlName="sub_department_id" [hidden]="true">
+              </fieldset>
+            </div>
+          </div>
+
+                    </tr>
+          </table>
+
+
+    </div>
+    <div [hidden]="!placing_order_for_student" class="alert
+        alert-warning">Making Your Company's Order, Please Wait...</div>
+    <button class="submit-order-button btn btn-success"
+        [disabled]="placing_order_for_student" type="submit">Submit Order</button>   </form>
+    <br>
+
+</div>
+
+<!-- <button (click)="goBackToWantMoreOrNotPage()"class="back-button btn btn-small btn-default"><span class="glyphicon glyphicon-arrow-left"></span> --> 
+<!--     Back -->
+<!-- </button> -->
+
+<!--         <form [formGroup] = "orderStudentForm"  (ngSubmit)="submitOrder2()"> -->
+<!--         <div formArrayName = "order" class="form-group"> -->
+<!--           <label>Please enter the number required per department.</label> -->
+
+
+<!--           <table class="table"> -->
+<!-- 			  <thead> -->
+<!--               <tr> -->
+<!--                   <th><h4>Departments And Divisions</h4></th> -->
+<!--               </tr> -->
+<!-- 			  </thead> -->
+<!--                   <tbody> -->
+<!--                     <tr  [formGroupName]="i" *ngFor="let order of -->
+<!--           orderStudentForm.controls.order.controls; -->
+<!--           let i= index "> -->
+                        
+<!--                         <td><b>{{main_departments[i].name | titlecase}} -->
+<!--                                 Engineering</b> -->
+<!--                             <br> -->
+<!--                             <div *ngFor="let sub_department of -->
+<!--                             main_departments[i].sub_departments"> -->
+<!--                                 {{sub_department.name}} -->
+<!--                                 <td>Number Needed:&emsp;&emsp;<input formControlName="number_needed" /></td> -->
+<!--                                 <br> -->
+<!--                             </div> -->
+<!--                         </td> -->
+<!--                     </tr> -->
+
+<!--                   </tbody> -->
+<!--           </table> -->
+
+<!-- </div> -->
+
+
+<!--         <button class="submit-order-button btn btn-success" type="submit">Submit Order</button> -->
+<!--         </form> -->
+<!-- </div> -->
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

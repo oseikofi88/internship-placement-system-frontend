@@ -1,0 +1,354 @@
+/* DEMO STYLE
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+.wrapper{
+    font-family: 'Poppins', sans-serif;
+   background-image:url("../../../assets/img/dashboard-image.jpg");
+
+
+
+    /* Full height */
+    height:auto; 
+    min-height:100%;
+    background-attachment:fixed;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position:bottom;
+    /* -webkit-filter: brightness(70%); */
+    /* filter:brightness(70%); */
+    /* padding:70px; */ 
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+    background:transparent;
+}
+
+.navbar {
+    padding: 5px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    margin-top:-20px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: rgba(42, 63, 84,0.9);
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    /* background: rgba(42, 63, 84,0.5); */
+    text-align:center;
+    margin-top:-10px;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    background:rgba(255, 255, 255, 0.1);
+    background-opacity:1;
+    color:white !important;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+a.article, a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+
+    overflow-y:auto;
+	background:#F4F4F4;
+    width: calc(100% - 250px);
+    padding: 40px;
+    max-height: 500px;
+    transition: all 0.3s;
+    top: 0;
+    right: 0;
+    margin:auto;
+    position:absolute;
+    min-height:100%;
+}
+#content.active {
+    width: 100%;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+
+/*customs*/
+.glyphicon {
+    font-size: 25px;
+    color: #2A3F54;
+}
+
+.glyphicon-inbox, .glyphicon-calendar, .glyphicon-hdd,.glyphicon-earphone{
+    font-size: 15px;
+    color:inherit;
+    margin-right:5px;
+    
+
+}
+
+#content ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#content ul li a:hover {
+    background:#EDEDED ;
+}
+
+#content ul li.active > a, a[aria-expanded="true"] {
+    background: #fff;
+}
+#content ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #fff;
+}
+
+#content ul ul a:hover {
+    background:#EDEDED ;
+    color:inherit;
+
+}
+
+.navbar-btn{
+    background:inherit;
+    color: #2A3F54;
+}
+
+h3{
+    float:right;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #fff;
+    margin-right: 40px;
+    
+}
+
+h6{
+    float:right;
+    margin-right:80px;
+    margin-top:20px;
+    font-size: 1.1em;
+    font-weight: 100;
+    text-align:center;
+}
+
+.header-line{
+    width:200px;
+    text-align:center;
+    margin-top:-10px;
+    opacity:.5;
+}
+
+.profile-block{
+    /* display:inline-block; */
+    margin-left:25px;
+    margin-top:-30px;
+    margin-bottom:-7px;
+}
+.profile-picture{
+    height:40px;
+    width:40px;
+    margin-top:5px;
+    margin-left:15px;
+
+    
+}
+
+.sidebar-components{
+    margin-top:40px;
+    margin-left:35px;
+    
+}
+
+h5{
+    
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    font-weight: 100;
+    line-height: 1.0em;
+    color: #fff;
+}
+
+
+/* .content-body{ */
+/*     text-align:justify; */
+/*    background-color:#fff; */ 
+/*    border-style:solid; */
+/*    border-width:1px; */
+/*    border-color:#C1C1C1; */
+/*    padding:0px 10px 0px 10px; */
+/* } */
+
+
+.coe-logo{
+    height:40px;
+    width:40px;
+    margin-top:25px;
+    margin-left: 40px;
+    float:left;
+
+    
+}
+
+/* .navbar-btn:hover{ */
+/*     background:none; */
+
+    
+/* .navbar-icons{ */
+/*     display:inline-block; */
+/*     margin:0px 20px 0px 20px; */
+/*     float:right; */
+/* } */
+/* .message-icon{ */
+/*     display:inline-block; */
+/* 	width:8%; */
+/* 	height:8%; */
+/*     float:right; */
+/* } */
+/* .notification-icon{ */
+/*     display:inline-block; */
+/* 	width:5%; */
+/* 	height:5%; */
+/*     float:right; */
+/*     margin-top:-45px; */
+/* } */
+/* .profile-icon{ */
+/*     display:inline-block; */
+/* 	width:8%; */
+/* 	height:8%; */
+/*     float:right; */
+/* } */

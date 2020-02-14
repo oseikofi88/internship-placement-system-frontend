@@ -1,0 +1,98 @@
+<div class="content-body">
+<br>
+<br>
+<br>
+<br>
+<div  class="
+                  alert alert-info select_from_registered_companies">
+        <form class="registration-form-wrapper"
+              [formGroup]="replaceCoordinatorForm"
+
+
+              (ngSubmit)="replaceCoordinator()" novalidate >
+
+                  <div class="form-group row"
+                  [ngClass]="{'has-error':replaceCoordinatorForm.controls.coordinator_id?.touched &&
+                      replaceCoordinatorForm.controls.coordinator_id?.errors,
+                      'has-success'
+                      :replaceCoordinatorForm.controls.coordinator_id?.touched
+                      && replaceCoordinatorForm.controls.coordinator_id?.valid }" >
+
+                  <label for="department" class="control-label col-sm-2
+                  col-form-label" >Please Select The Coordinator To Replace:</label>
+
+
+                  <div class="col-sm-10" >
+                      <select  id="coordinator" class="form-control"
+                                                                        type="text"
+                                                                        formControlName="coordinator_id">
+                          <option *ngFor="let coordinator of
+                          coordinators; let i =index "
+                                                                                    [value]="coordinator.user_id">
+                          {{coordinator.email}} -
+                          {{coordinator.main_department_name}} 
+                          </option>
+                      </select>
+                          <span class="
+                          help-block"*ngIf="replaceCoordinatorForm.get('coordinator_id').hasError('required')
+                          && replaceCoordinatorForm.get('coordinator_id').touched
+                          ">
+                              Please Select Coordinator 
+                          </span>
+                  </div>
+                  </div>
+                  
+                  <br>
+                                      <input
+                                      formControlName="coordinator_email"
+                                      placeholder="New Coordinator Email"/>
+                      <br>
+                      <span class="help-block"
+                      *ngIf="replaceCoordinatorForm.controls.coordinator_email.errors?.required
+                      && replaceCoordinatorForm.controls.coordinator_email.touched">
+                    Index Number Is Required!
+                </span><br>
+                                      <input
+                                      formControlName="coordinator_password"
+                                      placeholder="New Coordinator Password"
+                                      type="password"/>
+                      <br>
+                    <span class="help-block"
+                      *ngIf="replaceCoordinatorForm.controls.coordinator_password.errors?.required
+                      && replaceCoordinatorForm.controls.coordinator_password.touched">
+                    Password Is Required!
+                </span>
+                      <br>
+                      <br>
+
+
+
+                      <button type="submit" class="add-student btn btn-lg btn-warning"
+                                            [disabled]="replaceCoordinatorForm.invalid
+                                            || replacing_coordinator"
+                                            >Replace Coordinator</button>
+
+                      <br>
+                      <br>
+                      <br>
+                      
+<div [hidden]="!replacing_coordinator" class="alert alert-warning">Replacing
+    Coordinator,
+        Please Wait...</div>
+
+        </form>
+
+              </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    </div>

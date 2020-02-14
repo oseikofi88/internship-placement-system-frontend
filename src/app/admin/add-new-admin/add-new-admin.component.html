@@ -1,0 +1,69 @@
+<div class="content-body">
+    <h4>Enter Details Of New Administrator</h4>
+<form  class="alert alert-info select_from_registered_companies"
+              [formGroup]="addAdminForm"
+
+
+              (ngSubmit)="addAdmin()" novalidate >
+
+                  <br>
+                                      <input
+                                      formControlName="admin_username"
+                                      placeholder="New Admin Username"/>
+                      <br>
+                      <span class="help-block"
+                      *ngIf="addAdminForm.controls.admin_username.errors?.required
+                      && addAdminForm.controls.admin_username.touched">
+                    Username is Required!
+                </span>
+    
+    <br>
+<span class=" help-block" *ngIf="  addAdminForm.get('admin_username').errors
+
+&& addAdminForm.get('admin_username').errors.duplicate
+&&
+addAdminForm.get('admin_username').touched">
+
+                       This Username Has Already Registered
+                    </span>
+    <br>
+                                      <input
+                                      formControlName="admin_password"
+                                      placeholder="New Admin Password"
+                                      type="password"/>
+                      <br>
+                    <span class="help-block"
+                      *ngIf="addAdminForm.controls.admin_password.errors?.required
+                      && addAdminForm.controls.admin_password.touched">
+                    Password Is Required!
+                </span>
+                      <br>
+                      <br>
+
+
+
+                      <button type="submit" class="add-student btn btn-lg btn-warning"
+                                            [disabled]="addAdminForm.invalid
+                                            || adding_new_admin"
+                                            >Add New Admin</button>
+
+                      <br>
+                      <br>
+                      <br>
+                      
+<div [hidden]="!adding_new_admin" class="alert alert-warning">Adding
+    Coordinator,
+        Please Wait...</div>
+
+
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+
+        </form>
+
+
+</div>

@@ -1,0 +1,33 @@
+<div class="content-body">
+<div>
+    <h4><u>General Student Graph Statistics</u></h4>
+<br>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            ></canvas>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <h4><u>Company Graph Statistics</u></h4>
+    <p>This chart(in %) represents the top 20 companies that 
+    made the highest request for students from the various departments of
+    the college</p>
+<br>
+<div  style="display: block">
+  <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [colors]="chartColors"
+              ></canvas>
+</div>
+</div>

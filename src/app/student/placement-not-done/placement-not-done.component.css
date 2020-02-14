@@ -1,0 +1,19 @@
+.content-body{
+    text-align:justify;
+   background-color:#fff; 
+   border-style:solid;
+   border-width:1px;
+   border-color:#C1C1C1;
+   padding:0px 10px 0px 10px;
+}
+
+
+.introductory-letter-button{
+    background-color:transparent;
+    color:#8A6D45;
+} 
+.alert{
+    text-align:center;
+    width:50%;
+    margin:0 auto;
+}

@@ -1,0 +1,62 @@
+.content-body{
+    text-align:justify;
+   background-color:#fff; 
+   border-style:solid;
+   border-width:1px;
+   border-color:#C1C1C1;
+   padding:0px 10px 0px 10px;
+}
+
+
+.introductory-letter-button{
+    background-color:transparent;
+    color:#A94446;
+} 
+.alert{
+    text-align:center;
+    width:50%;
+    margin:0 auto;
+}
+
+
+
+
+.letter-body{height: 842px;
+	width: 595px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.return-address{
+	margin-top: 2px;
+	margin-bottom: 2px;
+
+}
+.right{
+	float: right;
+}
+.left{
+	float: left;
+}
+
+
+.b {
+	clear: both;
+	font-weight: bold;
+	padding-top: 80px;
+}
+.divAdios {
+	float: right;
+	padding-top: 50px;
+}
+
+.content{
+	font-size: medium;
+}
+
+.found-company-button{
+    display:block;
+    margin:0 auto;
+}
+
+
+

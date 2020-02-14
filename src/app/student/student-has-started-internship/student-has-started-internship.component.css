@@ -1,0 +1,49 @@
+agm-map {
+    padding:20px;
+    height: 400px;
+    width:400;
+}
+
+
+
+form{
+    max-width:700px;
+    margin:50px auto;
+    /* padding: 15px 35px 45px; */
+    /* margin: 0 auto; */
+    /* background-color: transparent; */
+    /* border: 1px solid rgba(0,0,0,0); */ 
+    /* position: absolute; /1* Position the background text *1/ */
+    /* top:50%; */
+    /* left:50%; */
+    /* transform: translate(-50%,-50%); */
+}
+
+.update-location-btn{
+    float:right;
+    width:100%;
+    
+}
+
+.update-details-btn{
+    display:block;
+    margin:40px auto;
+    width:100%;
+
+}
+
+@media only screen and (max-width: 601px) {
+  div.space-for-mobile{
+      margin-bottom:30px;
+
+  }
+  div.download-log-sheets-btn{
+   width:100%; 
+}
+
+div.update-location-btn{
+    width:100%;
+  }
+div.update-location-btn{
+  }
+  }

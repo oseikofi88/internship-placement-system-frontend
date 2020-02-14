@@ -1,0 +1,37 @@
+    <h4><u>General Student Statistics</u></h4>
+<div class="loading-directions" *ngIf="loading_data">
+        <img src="../../../assets/img/loading_icon.gif" alt="" height="100" width="100">
+        <h5>Loading Data,Please Wait</h5>
+    </div>
+<div class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Dept</th>
+      <th scope="col">Number Registered</th>
+      <th scope="col">Number That Wanted Placement</th>
+      <th scope="col">Number Placed By College</th>
+      <th scope="col">Number Not Placed By College</th>
+      <th scope="col">Number That Rejected College Placement</th>
+      <th scope="col">Number That Searched For Own Company</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let statistics of student_statistics ">
+    <tr>
+      <td>{{statistics.sub_department}} ({{statistics.main_department}})</td>
+      <td>{{statistics.registered}}</td>
+      <td>{{statistics.want_placement}} ({{statistics.want_placement/statistics.registered*100 | number : '1.2-2' }}%)</td>
+      <td>{{statistics.placed_by_college}}
+          ({{statistics.placed_by_college/statistics.want_placement*100 | number : '1.2-2' }}%)</td>
+      <td>{{statistics.not_placed_by_college}}
+          ({{statistics.not_placed_by_college/statistics.want_placement*100 | number : '1.2-2' }}%)</td>
+      <td>{{statistics.rejected_college_placement}}
+          ({{statistics.rejected_college_placement/statistics.want_placement*100 | number : '1.2-2' }}%)</td>
+      <td>{{statistics.searched_for_own_company}} ({{statistics.searched_for_own_company/statistics.registered*100 | number : '1.2-2' }}%)</td>
+
+    </tr>
+  </tbody>
+</table>
+
+</div>

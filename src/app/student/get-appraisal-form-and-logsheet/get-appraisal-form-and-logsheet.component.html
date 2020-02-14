@@ -1,0 +1,68 @@
+<div class="content-body">                
+
+
+    <h4> Please Read The Following Instructions Carefully </h4>
+    <p>
+
+    1. You'll need to download both the  logsheets and the confidential appraisal
+    form.<br><br>
+    2. For the log sheet make 8 copies, one for each week<br>(Please note that the
+    required duration for the vacation training period is 8 weeks, if for some
+    reason you can't do all the 8, Please contact your coordinator and let him
+    be aware of the situation first.) <br><br>
+    3. For each week, write down the activities you undertake during the course of
+    the week and let your supervisor sign it at the end of the week.<br><br>
+    4. Please make it a point to fill it as this is part of what your coordinators will use
+    to grade you.<br><br>
+    5.Immediately you get to know your supervisor in the company
+    you are interning ,click on Update Supervisor Details button to fill a form with the fields
+    <br>
+    i)Your supervisor name
+    <br>
+    ii)Your supervisor email
+    <br>
+    iii)Your supervisor phone.
+    <br>
+    <br>
+    6. At the end of the day internship period, you will need to give the 
+    confidential appraisal form to your supervisor for him/her to sign and then
+    seal it in an envelope for you.<br><br>
+    7. You need to compile the list of all log sheets and and appraisal
+    form along with 
+    your internship report and then submit them to your department when school
+    reopens.<br><br>
+    8. Concerning the report, every department has its own specification so you
+    have to ask your department's internship coordinator on your department's
+    specification for the report.<br><br>
+<br>
+<br>
+<br>
+<br>
+        <button (click)="downloadLogSheet()"class="download-log-sheets-btn btn btn-large btn-info">Download Log Sheet</button>
+
+                    <div class="space-for-mobile"></div>
+        <button (click)="downloadAppraisalForm()" class="download-appraisal-form-btn btn btn btn-large
+            btn-info">Download Confidential Appraisal Form</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div [hidden]="!started_internship_already">
+<button  (click)="updateSupervisorDetails()"class="started-internship-btn btn btn-large btn-success">Update Supervisor Details</button>
+</div>
+<p>
+
+
+
+
+
+<div [hidden]=hide_update_details>
+
+    <router-outlet></router-outlet>
+
+</div>
+
+</div>

@@ -1,0 +1,127 @@
+<button class="btn btn-success" (click)="download()">Download</button>
+
+<div *ngIf="student" id="letter">
+        <div class="shift-down-one-break-for-firefox">
+    </div>
+<div class="letter-head">
+
+    <div class="coe-heading">
+        <img class="knust-logo" src="../../../assets/img/knust-logo.png" >
+        <h3>COLLEGE OF ENGINEERING</h3>
+        <img class="coe-logo" src="../../../assets/img/coe-logo.png" >
+    </div>
+    <div class="knust-heading">
+        <h5 class="knust-in-full">KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY</h5>
+    </div>
+
+    <h5>Office of the Provost </h5>
+
+<div class="senders-address">
+<address class="return-address">
+    <p align="right" > University Post Office <br>
+        Kumasi-Ghana West Africa <br>
+        Direct Line: 233-3220-60240 <br>
+        Tel/Fax: 233-3220-60317 <br>
+        Email:<font color="blue"><i>provost.coe@knust.edu.gh</i></font>
+    </p>
+</address>
+</div>
+<div class="recipient-address">
+<address class="return-address">
+    <p align="left" ><b>{{ student[0].surname | titlecase}}  {{ student[0].other_names| titlecase}}</b> <br>
+    {{ student[0].index_number }} <br>
+   Third Year <br>
+   <b>{{ student[0].department | titlecase}} Engineering<br></b>
+    </p>
+</address>
+</div>
+
+
+<div class="letter-date">
+    <p>{{full_date | date:'fullDate'}}</p>
+</div>
+<br>
+
+</div>
+
+<p class="salutation">Dear {{ student[0].surname | titlecase}},</p>
+<div class="letter-intro">
+    <p>VACATION TRAINING FOR {{year-1}}/{{year}} ACADEMIC YEAR</p>
+</div>
+<div class="letter-content">
+    You have been placed at
+   {{ student[0].company.name  | titlecase}}, {{
+   student[0].company.location.address | titlecase }} for the Vacation Training course.
+    You are therefore to present this letter to the company
+    representative for further instructions.
+    In the meantime we wish to remind you that:<br>
+    1.	The vacation training course is an integral part of the BSc  {{ student[0].department | titlecase}} Engineering Programme
+    and you must pass the course in order to graduate.<br>
+    2.	The duration of the programme is from the 3rd of June {{year}} to
+    the 26th of July {{year}}.<br>
+    3.	There is no financial obligation on the host trainer organization. Any assistance your hosts may offer is
+    at their own discretion.<br>
+    4.	You are required to obey all the rules and regulations affecting regular employees at the host organization.<br>
+    5.	The hosts will assign you a trainer who will organize and supervise your activities at the host trainer
+    organization.<br>
+    6.	During the training, you must keep a daily log sheet of activities which you must compile into weekly progress sheets and finally into an industrial training report.<br>
+    7.	Please make sure that your host trainer signs your log sheets.<br>
+    8.	At the end of the training the trainer will grade your performance.<br>
+    9.	Faculty members from College of Engineering, KNUST will visit you during the training to monitor and
+    also grade your performance.<br>
+    10.	Your Vacation Training Report should be submitted to your department's
+    internship coordinator by 5:00 p.m. on 5th
+    September {{year}}.<br>
+    11.	If you have any difficulties, your first point of call is your host trainer, but do not hesitate to contact 
+    your coordinator for assistance.<br>
+
+    We wish you a fruitful vacation training.
+
+</div>
+<br>
+
+<div>
+<div class="closing-coordinator">
+    <p>Yours sincerely,</p>
+            <img src="../../../assets/img/mr_agyekum_signature.jpg" ><br>
+    <p>Ing. Kwame Agyekum
+    <br>
+   (College Internship Coordinator)
+   </p>
+</div>
+<div class="closing-provost">
+    <br>
+    <img src="../../../assets/img/provost_prof_mark_signature.jpg"><br> 
+    <p>Ing. Prof. Mark Adom-Asamoah
+    <br>
+(Provost, College of Engineering)
+   </p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+<div class="letter-footer">
+<font color="blue"><i>Departments</i></font>: Aerospace Engineering, Agricultural
+ Engineering, Biomedical Engineering, Chemical Engineering, Civil Engineering, Computer Engineering,
+Electrical and Electronic Engineering, Geological Engineering, Geomatic
+Engineering, Materials Engineering, Mechanical
+Engineering, Metallurgical Engineering, Petrochemical Engineering, Petroleum Engineering,
+Telecommunication Engineering.
+<br class=footer-br>
+<div class="energy-centres">
+<font color="blue"><i>Research Centres</i></font>: Technology Consultancy
+Centre, The Energy Centre.
+</div>
+</div>
+
+
+
+</div>
+</div>

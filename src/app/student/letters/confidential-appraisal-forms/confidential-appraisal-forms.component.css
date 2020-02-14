@@ -1,0 +1,142 @@
+.btn{
+    display:block;
+    margin-top:-25px;
+    margin:0 auto;
+
+}
+
+#letter{
+	margin-left:auto;
+	margin-right:auto;
+	height: 999px;
+    width: 595px;
+}
+
+.coe-heading{
+	color:red;
+	text-align:center;
+	margin-top:40px;
+
+}
+
+
+h3{
+	font-weight:bold;
+}
+
+h4{
+	color:black;
+}
+
+h5{
+	color:red;
+	font-weight:bold;
+	text-align:center;
+
+}
+
+
+.knust-heading{
+	text-align:center;
+	
+}
+
+.knust-logo{
+	width:60px;
+	height:80px;
+	float:left;
+	/* margin-left:130px; */
+	/* margin-top:20px; */
+}
+
+
+.coe-logo{
+	width:60px;
+	height:80px;
+	float:right;
+    margin-top:-35px;
+	/* margin-left:130px; */
+	/* margin-top:20px; */
+}
+
+
+.knust-in-full{
+	color:black;
+	font-weight:bold;
+	text-align:center;
+
+	
+}
+
+hr{
+	border:0;
+	border-top:2px solid red;
+	margin-top:-20px;
+
+
+
+}
+
+.our-reference p{
+	float:left;
+	margin-top:-20px;
+}
+.letter-date p{
+	float:right;
+	margin-top:-20px;
+}
+.letter-intro p{
+	text-align:center;
+    margin-top:-10px;
+}
+
+
+.letter-content{
+	text-align: justify;	
+	font-family: 'Times New Roman';
+}
+
+.closing-coordinator{
+	float:left;
+	font-family: 'Times New Roman';
+
+}
+.closing-provost{
+	float:right;
+	font-family: 'Times New Roman';
+
+}
+
+.closing-provost .closing-provost img{
+	width:25px;
+	height:25px;
+}
+
+.letter-footer{
+    margin-top:-20px;
+
+	font-size:8px;
+	color:green;
+    text-align:center;
+}
+.energy-centres{
+	text-align:center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+@-moz-document url-prefix(){
+.shift-down-one-break-for-firefox{
+    padding-bottom:10px;
+        
+}
+#letter{
+	padding-left:20px;
+}
+}

@@ -1,0 +1,111 @@
+<button class="btn btn-success" (click)="download()">Download</button>
+<div *ngIf ="student" id="letter">
+
+        <div class="shift-down-one-break-for-firefox">
+    </div>
+    <div class="letter-head">
+
+        <div class="coe-heading">
+            <img class="knust-logo" src="../../../assets/img/knust-logo.png" >
+            <h3>COLLEGE OF ENGINEERING</h3>
+            <img class="coe-logo" src="../../../assets/img/coe-logo.png" >
+        </div>
+            <div class="knust-heading">
+                <h5 class="knust-in-full">KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY</h5>
+            </div>
+            <br>
+
+            <h5>Office of the Provost </h5>
+
+            <div class="senders-address">
+                <address class="return-address">
+                    <p align="right" > University Post Office <br>
+                    Kumasi-Ghana West Africa <br>
+                    Direct Line: 233-3220-60240 <br>
+                    Tel/Fax: 233-3220-60317 <br>
+                    Email:<font color="blue"><i>provost.coe@knust.edu.gh</i></font>
+                    </p>
+                </address>
+            </div>
+            <hr>
+
+            <div class="our-reference">
+                <p>Our Ref:CoE-VACT/{{year}}/</p>
+            </div>
+
+            <div class="letter-date">
+                <p>{{full_date | date:'fullDate'}}</p>
+            </div>
+            <br>
+
+    </div>
+    <div class="letter-intro">
+        <p>{{year-1}}/{{year}} Vacation Training Log Sheet</p>
+    </div>
+    <div class="letter-content">
+
+        Name of Student: {{ student[0].surname | titlecase}} {{
+        student[0].other_names | titlecase}}.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   Index
+        No:{{student[0].index_number}}
+        <br>
+        Department:{{student[0].department}} Engineering
+        <br>
+        Company:{{student[0].company.name}}
+        <br>
+        Training Period:From .....................................................    to
+        ...................................................<br>
+Week Begins: ...........................
+Week ends: ...................... Week No: ...........
+        <br>
+
+<table style="width:100%">
+<tr>
+    <th>DATE</th>
+    <th>ACTIVITIES UNDERTAKEN</th>
+  <tr>
+    <td height="70"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="70"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="70"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="70"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="70"></td>
+    <td></td>
+  </tr>
+</table>
+<br>
+Name of Supervisor: ..............................................................................
+<br>
+Title: ...............................................................................
+<br>
+Date: ..........................................................
+<br>
+Signature: ........................
+<br>
+    <br>
+<hr>
+<div class="letter-footer">
+<font color="blue"><i>Departments</i></font>: Aerospace Engineering, Agricultural
+ Engineering, Biomedical Engineering, Chemical Engineering, Civil Engineering, Computer Engineering,
+Electrical and Electronic Engineering, Geological Engineering, Geomatic
+Engineering, Materials Engineering, Mechanical
+Engineering, Metallurgical Engineering, Petrochemical Engineering, Petroleum Engineering,
+Telecommunication Engineering.
+<br class=footer-br>
+<div class="energy-centres">
+<font color="blue"><i>Research Centres</i></font>: Technology Consultancy
+Centre, The Energy Centre.
+</div>
+</div>
+</div>
+    

@@ -1,0 +1,61 @@
+<div *ngIf="student" class="content-body">
+<div>
+        
+        <div class="alert alert-info" role="alert">
+                   <h4>{{student[0].surname | titlecase}} {{student[0].other_names |
+                titlecase}} , You Have Not Been Placed.
+
+</h4>
+                <button type="button" (click)="getIntroductoryLetter()"
+                    class="introductory-letter-button btn btn-default">Get 
+                    Introductory Letter</button>
+                    </div>
+                   <h4> Please Read The Following Instructions Carefully </h4>
+                <p>
+
+1)In filling your form you selected the "I have a company to intern with
+already" option or for a particular reason, you requested that your placement
+should be undone because you cannot intern at the company 
+you were given by the college.
+<br>
+<br>
+
+
+2)You need to download the introductory letter and take it to the company that
+you will be interning with.
+<br>
+<br>
+
+3)You need to get a confirmation letter from them which will endorse that they have given you an opportunity to intern with them. 
+<br>
+<br>
+
+
+4.Get a softcopy of this letter (this can simply be done by taking a picture
+of the letter or scanning
+the letter into a pdf .<br>Note that the formats for uploading are images 
+and pdfs)
+you need to upload this file when you are registering the company or later in
+case you don't have it as of the time you are registering the company.<br><br>
+
+                <br>
+                <br>
+
+5)Click on the “I've Found A Company Button” if you have gotten a company to
+intern with to fill in the details of the company you are interning with.
+                <br>
+                <br>
+                <button type="button" (click)="studentHasFoundACompany()"
+                    class="found-company-button btn btn-success"> I Have
+                    Found A Company</button>
+
+                
+                <br>
+                <br>
+                <br>
+
+                </p>
+
+                <div class="line"></div>
+</div>
+</div>

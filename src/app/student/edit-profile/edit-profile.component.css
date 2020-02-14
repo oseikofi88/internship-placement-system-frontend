@@ -1,0 +1,40 @@
+.content-body{
+    text-align:justify;
+   background-color:#fff; 
+   border-style:solid;
+   border-width:1px;
+   border-color:#C1C1C1;
+   padding:0px 10px 0px 10px;
+}
+
+.change-department-button{
+    float:right;
+}
+.change-location-button{
+    float:right;
+}
+
+.change-student-type-button{
+    float:right;
+
+}
+
+hr{
+background-color: dimgrey !important;
+    color: dimgrey !important;
+    border: solid 1px dimgrey !important;
+    height: 1px !important;
+    width: 1000px !important;
+}
+.update-details-button{
+    display:block;
+    margin: 0 auto;
+}
+
+
+agm-map {
+    padding:20px;
+    height: 480px;
+    width:480;
+}
+

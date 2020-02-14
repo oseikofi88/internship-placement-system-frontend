@@ -1,0 +1,479 @@
+<div class="content-body">                
+
+
+    <div>
+
+
+
+<br>
+        <label for="">Please Change Your Details As You Want, Any Value Not
+            Changed Will Remain As It Is. </label>
+<br>
+<br>
+
+            <form *ngIf="student" class="registration-form-wrapper" 
+                  [formGroup]="studentUpdateDetailsForm"
+                  (ngSubmit)="updateDetails()" >
+
+                      <div [ngClass]="{'has-error':studentUpdateDetailsForm.controls.index_number?.touched && 
+                      studentUpdateDetailsForm.controls.index_number?.errors,
+                      'has-success' :studentUpdateDetailsForm.controls.index_number?.touched
+                      && studentUpdateDetailsForm.controls.index_number?.valid }" 
+                  class="form-group row">
+
+                          <label for="index_number" class="control-label col-sm-2 col-form-label" >Index Number:</label>
+
+                          <div class="col-sm-10">
+                              <input
+                              (keyup)="checkIfIndexNumberBelongsToSomeone($event)" id="index_number" class="form-control" type="text" name="index_number" formControlName="index_number">
+                <span class="help-block" *ngIf="studentUpdateDetailsForm.get('index_number').hasError('required')
+                && studentUpdateDetailsForm.get('index_number').touched">
+                    Index Number Is Required!
+                </span>
+                <span class="help-block" *ngIf="studentUpdateDetailsForm.get('index_number').hasError('minlength')
+                && studentUpdateDetailsForm.get('index_number').touched">
+                    Index Number Should Not Be Less Than 7 In Number!
+                </span>
+
+                <span class="help-block" *ngIf="studentUpdateDetailsForm.get('index_number').hasError('maxlength')
+                && studentUpdateDetailsForm.get('index_number').touched">
+                    Index Number Should Not Be Greater Than 7 In Number!
+                </span>
+
+                 <span class=" help-block" *ngIf="studentUpdateDetailsForm.get('index_number').hasError('pattern')
+                    && studentUpdateDetailsForm.get('index_number').touched">
+                     Index Number, Not Index Letters!
+                 </span>
+
+                 <span class=" help-block"
+                 *ngIf="index_number_belongs_to_someone && studentUpdateDetailsForm.get('index_number').touched" >
+                 The index number {{
+                 existing_student_with_index_number_entered[0].index_number }}
+                 belongs to
+                 {{existing_student_with_index_number_entered[0].surname | titlecase}}
+                 {{existing_student_with_index_number_entered[0].other_names | titlecase}}
+                 from the
+                 {{existing_student_with_index_number_entered[0].department | titlecase}}
+                 Department
+
+
+                 </span>
+
+
+
+
+                    
+
+                          </div>
+                
+               <div>
+
+
+</div>
+</div>
+
+                      <div [ngClass]="{'has-error':studentUpdateDetailsForm.controls.surname?.touched && 
+                      studentUpdateDetailsForm.controls.surname?.errors,
+                      'has-success' :studentUpdateDetailsForm.controls.surname?.touched
+                      && studentUpdateDetailsForm.controls.surname?.valid }" 
+                  class="form-group row">
+                          <label for="surname" class="control-label col-sm-2 col-form-label" >Surname:</label>
+                          <div class="col-sm-10">
+                              <span> 
+                              <input id="surname" class="form-control" type="text" name="surname" formControlName="surname">
+                          </span>
+
+                          <span class=" help-block"*ngIf="studentUpdateDetailsForm.get('surname').hasError('required')
+                          && studentUpdateDetailsForm.get('surname').touched">
+                              Surname Is Required!
+                          </span>
+
+                          <span class=" help-block"*ngIf="studentUpdateDetailsForm.get('surname').hasError('pattern')
+                          && studentUpdateDetailsForm.get('surname').touched">
+                              Surname Can Only Consist Of Alphabets And Hyphen!
+                          </span>
+
+
+                      </div>
+                      </div>
+
+
+                      <div [ngClass]="{'has-error':studentUpdateDetailsForm.controls.other_names?.touched && 
+                      studentUpdateDetailsForm.controls.other_names?.errors,
+                      'has-success' :studentUpdateDetailsForm.controls.other_names?.touched
+                      && studentUpdateDetailsForm.controls.other_names?.valid }" 
+                  class="form-group row">
+
+                          <label for="other_names" class="control-label col-sm-2 col-form-label" >Other Name(s):</label>
+
+                          <div class="col-sm-10">
+                              <input id="other_names" class="form-control" type="text" name="other_names" formControlName="other_names">
+
+                          <span class=" help-block" *ngIf="studentUpdateDetailsForm.get('other_names').hasError('required')
+                          && studentUpdateDetailsForm.get('other_names').touched">
+                              Other Names Is Required!
+
+
+                          </span>
+
+                          <span class=" help-block"*ngIf="studentUpdateDetailsForm.get('other_names').hasError('pattern')
+                          && studentUpdateDetailsForm.get('other_names').touched">
+                              Other Names Can Only Consist Of Alphabets And Hyphen!
+                          </span>
+                          </div>
+                      </div>
+
+
+
+                      <div [ngClass]="{'has-error':studentUpdateDetailsForm.controls.phone?.touched && 
+                      studentUpdateDetailsForm.controls.phone?.errors,
+                      'has-success' :studentUpdateDetailsForm.controls.phone?.touched
+                      && studentUpdateDetailsForm.controls.phone?.valid }" 
+                  class="form-group row">
+
+                          <label for="phone" class="control-label col-sm-2 col-form-label" >Phone:</label>
+
+                          <div class="col-sm-10">
+                              <input id="phone" class="form-control" type="text" name="phone" formControlName="phone">
+
+                          <span class=" help-block" *ngIf="studentUpdateDetailsForm.get('phone').hasError('required')
+                          && studentUpdateDetailsForm.get('phone').touched">
+                                Phone number is required
+
+
+                          </span>
+
+                          <span class=" help-block"*ngIf="studentUpdateDetailsForm.get('phone').hasError('pattern')
+                          && studentUpdateDetailsForm.get('phone').touched">
+                              Phone Number should be a minimum of 10 characters
+                              and can only consist of numbers and '+'.ie
+                              formats are 0201112223 or +233201112223
+                              <br>
+                              If You have more than one contact number,separate
+                              them by the '/' .ie  +233201112223/+233404535115
+                              
+
+                          </span>
+
+                      </div>
+
+                          </div>
+
+                      <div [ngClass]="{'has-error':studentUpdateDetailsForm.controls.email?.touched && 
+                      studentUpdateDetailsForm.controls.email?.errors,
+                      'has-success' :studentUpdateDetailsForm.controls.email?.touched
+                      && studentUpdateDetailsForm.controls.email?.valid }" 
+                  class="form-group row">
+
+                          <label for="email" class="control-label col-sm-2 col-form-label" >Email:</label>
+
+                          <div class="col-sm-10">
+                              <input id="email" class="form-control" type="text" name="email" formControlName="email">
+
+                                                                             <span class=" help-block" *ngIf="studentUpdateDetailsForm.get('email').hasError('required')
+                                                                             && studentUpdateDetailsForm.get('email').touched">
+                                                                                 Email is Required!
+
+                                                                             </span>
+
+                          <span class=" help-block" *ngIf="studentUpdateDetailsForm.get('email').touched
+                          && studentUpdateDetailsForm.get('email').errors
+                          && studentUpdateDetailsForm.get('email').errors.incorrectMailFormat">
+                              Please enter a valid email
+                          </span>
+
+                      </div>
+
+                          </div>
+                          
+                          <div class="form-group row">
+
+                          <label for="department" class="control-label col-sm-2
+                          col-form-label" >Current Department:</label>
+
+                          <div class="col-sm-10">
+                                    {{student[0].department}}
+
+                              <button class="change-department-button btn
+                                      btn-info" type="button"
+                                                                                    (click)="changeDepartment()"
+
+                                                                                    >
+                              Change Department</button>
+
+                              
+
+                          </div>
+
+                          </div>
+
+
+<div [hidden]="change_department" >
+                      <hr>
+    <label for="">New Department</label>
+                      <div [ngClass]="{'has-error':studentUpdateDetailsForm.controls.main_department?.touched && 
+                      studentUpdateDetailsForm.controls.main_department?.errors,
+                      'has-success' :studentUpdateDetailsForm.controls.main_department?.touched
+                      && studentUpdateDetailsForm.controls.main_department?.valid }" 
+                  class="form-group row">
+
+                          <label for="department" class="control-label col-sm-2 col-form-label" >Department:</label>
+
+                          <div class="col-sm-10">
+                              <select (change)="onSelectMainDepartment($event)"
+                               id="main_department" class="form-control"
+                               type="text" formControlName="main_department"> 
+                              <option *ngFor="let main_department of
+                              main_departments let i =index "
+                              [value]="i">
+                              {{main_department.name }} </option>
+
+                          </select>
+                          <span class=" help-block"*ngIf="studentUpdateDetailsForm.get('main_department').hasError('required')
+                          && studentUpdateDetailsForm.get('main_department').touched
+                          ">
+                         please select your department. 
+                          </span>
+                      </div>
+                          </div>
+
+
+<div [ngClass]="{'has-error':studentUpdateDetailsForm.controls.sub_department?.touched && 
+                      studentUpdateDetailsForm.controls.sub_department?.errors,
+                      'has-success' :studentUpdateDetailsForm.controls.sub_department?.touched
+                      && studentUpdateDetailsForm.controls.sub_department?.valid }" 
+                  class="form-group row">
+
+                          <label for="department" class="control-label col-sm-2
+                              col-form-label" >Please Specify:</label>
+
+                          <div class="col-sm-10">
+                              <select (change)="onSelectSubDepartment($event)" id="sub_department" class="form-control"
+                                  type="text" name="sub_department"
+                                  formControlName="sub_department">
+                              <option *ngFor="let sub_department of
+                              sub_departments;let i =index "
+                              [value]="i">
+                              {{sub_department.name }} </option>
+
+                          </select>
+                          <span class=" help-block"*ngIf="studentUpdateDetailsForm.get('sub_department').hasError('required')
+                          && studentUpdateDetailsForm.get('sub_department').touched
+                          ">
+                              Please Specify 
+                          </span>
+                      </div>
+                          </div>
+                      <hr>
+                    
+</div>
+
+<div>
+
+
+</div>
+
+
+<div class="form-group row">
+
+                          <label for="department" class="control-label col-sm-2
+                          col-form-label" >Student Type:</label>
+
+                          <div class="col-sm-10">
+                                    {{student_type}}
+
+                              <button class="change-student-type-button btn
+                                      btn-info" type="button"
+                                                                                    (click)="changeStudentType()"
+
+                                                                                    >
+                              Change Student Type</button>
+
+                              
+
+                          </div>
+
+                          </div>
+                      <div [hidden]="change_student_type">
+<hr>
+                        <label for="student_type">Please Select Student Type</label>
+                                <div class="radio">
+                                    <label> 
+                              <input 
+                                     type="radio" value="0"
+                                                  formControlName="foreign_student" >
+                              Ghanaian Student
+                          </label>
+                                </div>
+
+                            <div class="radio">
+                                <label>
+                              <input   type="radio"
+                                                               value="1"formControlName="foreign_student" >
+                                                               Foreign Student
+                          </label>
+                      </div>
+                      <hr>
+</div>
+
+
+<div class="form-group row">
+
+                          <label for="department" class="control-label col-sm-2
+                          col-form-label" >Do You Have A Company To Intern With
+                          Already:</label>
+
+                          <div class="col-sm-10">
+                                    {{student_want_placement_status}}
+
+                              <button class="change-department-button btn
+                                      btn-info" type="button"
+                                                                                    (click)="changeWantPlacementStatus()">
+                              Change Placement Status</button>
+
+                              
+
+                          </div>
+
+                          </div>
+
+<div [hidden]="change_company_placement_status"> 
+                      <hr>
+                          <label for="want_placement"  > Please Select: </label> 
+
+                              <div class="radio">
+                                  <label>
+                                  <input 
+                                               type="radio" value="0"
+                                                            formControlName="want_placement">
+                                  Yes I Already Have A Company I Will Intern
+                                  With.
+                              </label></div>
+
+
+                              <div class="radio">
+                                  <label> 
+                                      <input 
+                                             type="radio" value="1"
+                                                          formControlName="want_placement" checked>
+                                      No I Do Not  Have A Company I Will Intern
+                                      With.
+                                  </label>
+                              </div>
+                      <hr>
+</div>
+
+<br>
+
+<div class="form-group row">
+
+                          <label for="email" class="control-label col-sm-2
+                              col-form-label" >Place Of Residence:</label>
+
+                          <div class="col-sm-10">
+                                {{student[0].location.name}}  
+                              
+
+                              
+
+
+<div>
+
+                            <agm-map #myMap [latitude]="latitude"
+                                 [longitude]="longitude"
+                                 [scrollwheel]="false" [zoom]="zoom">
+                          <agm-marker
+                            [latitude]="latitude"
+                            [longitude]="longitude"></agm-marker>
+                        </agm-map>
+                        </div>
+                      <br>
+                      <br>
+ <button class="change-location-button btn
+                                      btn-info" type="button"
+                                                                                    (click)="changeLocation()"
+
+                                                                                    >
+                              Change Location</button>                             <br>
+
+                          </div>
+                          </div>
+
+
+<div [hidden]="change_place_of_residence"
+                                            [ngClass]="{'has-error':studentUpdateDetailsForm.controls.locale?.controls.search_place?.touched && 
+                                            studentUpdateDetailsForm.controls.locale?.controls.search_place?.errors,
+                                            'has-success' :studentUpdateDetailsForm.controls.locale?.controls.search_place?.touched
+                                            &&
+                                            studentUpdateDetailsForm.controls.locale?.controls.search_place?.valid
+                                             }"
+                                            class="form-group row">
+
+                                 <div formGroupName="locale" >
+                                     <label class=" control-label col-sm-2
+                                     col-form-label" for="location">Enter New Place of Residence</label>
+
+                                     <div class="col-sm-10">
+                          <input placeholder="search for location"
+                                 autocorrect="off" autocapitalize="off"
+                                 spellcheck="off" type="text"
+                                                  class="location-input form-control"
+                                 #search_ref formControlName="search_place"
+                                             >
+
+                          
+
+                          <div class=" help-block"
+                        > Please Don't Forget To Select From The Suggested Locations
+                      </div>
+                              <br>
+                              <br>
+ <div class="form-group row">
+
+                          <label for="department" class="control-label col-sm-2
+                          col-form-label" >New Place Of Residence:</label>
+
+                          <div class="col-sm-10">
+                                    {{new_place_of_residence}}
+
+                              
+
+                              
+
+                          </div>
+
+                          </div>                             
+
+
+
+                      </div>
+</div>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      
+
+                        
+
+                      </div>
+    <div [hidden]="!updating_details" class="alert alert-warning">Updating Details...</div>
+<button type="button" class="btn btn-lg btn-danger
+            update-details-button"
+                                  [disabled]="studentUpdateDetailsForm.invalid
+                                  || updating_details || index_number_belongs_to_someone" (click)="updateDetails()">
+                Update Details</button>
+<br>
+<br>
+
+
+            </form>
+                                 
+
+    </div>
+
+    </div>
+
+
+
+

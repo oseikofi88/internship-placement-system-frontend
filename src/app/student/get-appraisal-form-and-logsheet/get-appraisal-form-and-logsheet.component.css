@@ -1,0 +1,36 @@
+.content-body{
+    text-align:justify;
+   background-color:#fff; 
+   border-style:solid;
+   border-width:1px;
+   border-color:#C1C1C1;
+   padding:0px 10px 0px 10px;
+}
+
+
+.download-log-sheets-btn{
+    float:left;
+    margin-top:-30px;
+
+} 
+.download-appraisal-form-btn{
+    float:right;
+    margin-top:-30px;
+}
+
+.started-internship-btn{
+    display:block;
+    margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 601px) {
+  div.space-for-mobile{
+      margin-bottom:50px;
+
+  }
+  div.download-log-sheets-btn{
+   width:100%; 
+}
+  }
+

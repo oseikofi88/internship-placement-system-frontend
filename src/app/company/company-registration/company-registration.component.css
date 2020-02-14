@@ -1,0 +1,184 @@
+.background-container{
+    position:relative;
+    height:100%;
+}
+
+
+.std-background{
+    background-image:url("/assets/img/company-registration-image.jpg");
+
+
+
+    /* Full height */
+    height:auto; 
+    min-height:100%;
+    background-attachment:fixed;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* -webkit-filter: brightness(70%); */
+    /* filter:brightness(70%); */
+    padding:70px;
+}
+
+
+.registration-form-wrapper{
+    /* Put this on top of the blurred layer */
+
+    position: relative;
+    z-index: 100;
+    padding: 20px;
+    background: rgb(34,34,34); /* for IE */
+    background: rgba(34,34,34,0.75);
+    /* text-align:justify; */
+    text-transform:capitalize;
+    font-color:white;
+    text-color:white;
+   width:750px;
+    height:auto;
+  margin: auto;
+top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+h2{
+    color:  white;
+    font-weight: bold;
+}
+h4{
+font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;    
+	color: green;
+
+}
+p {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+label, dt,dd,h4,h5{
+    
+    color:white;
+}
+.next-button-to-rep-details{
+
+color:#ffffff ;
+background-color:transparent;
+border:solid 0.5px white;
+margin-top:-40px;
+margin-right:40px;
+float:right;
+
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+.next-button-to-rep-details:hover{
+border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+}
+
+.change-location-method{
+margin-top:-5px;
+float:right;
+margin-right:40px;
+color:#ffffff ;
+background-color:transparent;
+border:solid 0.5px white;
+margin-top:-40px;
+margin-right:40px;
+float:right;
+
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.change-location-method:hover{
+border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+}
+    
+.register-company {
+    float:bottom;
+color:#ffffff ;
+background-color:transparent;
+border:solid 0.5px white;
+margin-top:-40px;
+margin-right:40px;
+float:right;
+
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  float:right;
+    
+}
+
+.register-company:hover {
+border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+
+  }
+
+.back-to-company-registration {
+color:#ffffff ;
+background-color:transparent;
+border:solid 0.5px white;
+margin-top:-40px;
+float:left;
+margin-left:40px;
+
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+    
+}
+
+.back-to-company-registration:hover {
+border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+
+  }
+
+
+agm-map {
+  height: 500px;
+}

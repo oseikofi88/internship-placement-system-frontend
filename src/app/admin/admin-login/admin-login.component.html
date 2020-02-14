@@ -1,0 +1,42 @@
+<div class="background-container">
+    
+    <div class="std-background">
+<form  [formGroup]="loginForm"
+     class="login-form-wrapper"
+(ngSubmit)="loginAdmin()"  novalidate > 
+        <div class="form-group">
+            <label for="company_id">
+            Admin Username
+           <br>
+</label>
+           
+            <input id="admin_username" class="form-control" type="text" name="admin_username" formControlName="admin_username">
+        </div>
+                
+                    
+        <div class="form-group">
+            <label for="password">
+           Password                       
+<br>
+            <input id="password" class="form-control" type="PASSWORD" name="password" formControlName="password">
+            </label>
+        </div>
+
+    <div [hidden]="!logging_in" class="alert alert-warning">
+        Logging In,Please Be Patient...</div>
+
+		<button class="login-button btn btn-default" type="submit"
+
+
+                                            [disabled]="logging_in"
+            >Login</button>
+
+    </form>
+
+	
+</div>
+</div>
+
+
+
+	

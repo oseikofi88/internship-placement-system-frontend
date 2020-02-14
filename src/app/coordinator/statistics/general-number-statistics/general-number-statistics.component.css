@@ -1,0 +1,22 @@
+.content-body{
+   background-color:#fff; 
+   border-style:solid;
+   border-width:1px;
+   border-color:#C1C1C1;
+   padding:0px 10px 0px 10px;
+}
+
+
+.student-statistics{
+    float:left;
+    margin-left:30px;
+}
+
+.company-statistics{
+    float:right;
+    margin-right:30px;
+}
+ h4{
+     text-align:center;
+
+}

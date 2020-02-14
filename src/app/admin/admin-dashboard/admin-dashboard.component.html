@@ -1,0 +1,174 @@
+<div  class="wrapper">
+            <nav id="sidebar" [class.active]="hide_sidebar">
+                <div class="sidebar-header">
+                        <img class="coe-logo"
+                             src="../../../assets/img/coe-logo.png">
+                    <h3>COE-IPS</h3>
+                    <hr class="header-line divider">
+                </div>
+
+                <ul class="list-unstyled components">
+                    <div class="profile-block">
+                        <img class="profile-picture" src="../../../assets/img/user.png"
+                        ><h6></h6></div> <br>
+                    <br>
+                    
+
+                    <hr class="header-line divider">
+                    <div class="sidebar-components">
+                        <h5>   
+<li class="active">
+                        <a href="#statisticsSubMenu" data-toggle="collapse"
+                            aria-expanded="false">
+                                    <span class="glyphicon
+                                    glyphicon-inbox"></span>
+                            
+                            Statistics</a>
+                        <ul class="collapse list-unstyled"
+                            id="statisticsSubMenu">
+                            <li><a
+                                    [routerLink]="['number-statistics']">Number
+                                Statistics</a></li>
+                            <li><a
+                                    [routerLink]="['graph-statistics']">Graph
+                                Statistics</a></li>
+<li><a
+                                    [routerLink]="['all-students-and-their-companies']">
+    All Students & Their Companies</a></li>
+                        </ul>
+                            <h5>   
+<li class="active">
+                        <a href="#addNewSubMenu" data-toggle="collapse"
+                            aria-expanded="false">
+                                    <span class="glyphicon
+                                    glyphicon-tag"></span>
+                            
+                            Add new Admin/Coordinator</a>
+                        <ul class="collapse list-unstyled"
+                            id="addNewSubMenu">
+                            <li><a
+                                    [routerLink]="['replace-coordinator']">
+                                Replace Coordinator</a></li>
+                            <li><a
+                                    [routerLink]="['add-new-admin']">
+                                Add New Admin</a></li>
+                        </ul>
+                            
+
+                        </h5>
+
+                        </h5>
+                            <br>
+                            <h5>
+
+                        <li>
+                        <a [routerLink]="['placement-and-rejection']"> 
+                                <span class="glyphicon
+                                               glyphicon-calendar"></span>
+                                           Manual Placement  & Rejection</a>
+                    </li>
+                    </h5>
+                    <br>
+                    <h5>
+
+                        <li>
+                        <a [routerLink]="['register-company-and-make-order']"> 
+                                              <span class="glyphicon
+                                               glyphicon-hdd"></span>
+                                           Register Company & Make Order</a>
+                    </li>
+                        </h5>
+                            <br>
+                            <h5>
+
+
+
+<li>
+                        <a [routerLink]="['place-or-undo-student-placement']"> 
+                                              <span class="glyphicon
+                                               glyphicon-road"></span>
+                                           Place Students</a>
+                    </li>
+
+                    </h5>
+                    <br>
+                    
+                    </div>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- Page Content Holder -->
+            <div id="content" [class.active]="hide_sidebar">
+
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" (click)=hideSidebar() class="btn navbar-btn">
+                                <i class="glyphicon glyphicon-menu-hamburger"
+                                    ></i>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-envelope"></span></a>
+
+        <ul class="dropdown-menu">
+          <li> <a style="cursor: pointer;">No new Messages</a></li>
+        </ul>
+      </li>
+<li class="dropdown"><a class="dropdown-toggle"
+        data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
+
+        <ul class="dropdown-menu">
+          <li><a style="cursor: pointer;"> No new Notification</a></li>
+        </ul>
+      </li>
+<li class="dropdown"><a class="dropdown-toggle"
+        data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
+
+        <ul class="dropdown-menu">
+          <li [class.search-dropdown-tabs-active] ="true">
+<a style="cursor: pointer;"  (click)="logout()">Logout</a> 
+</li>
+        </ul>
+      </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+ 
+                <div>
+                    <br>
+                    <router-outlet></router-outlet>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

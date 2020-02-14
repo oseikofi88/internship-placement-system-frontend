@@ -1,0 +1,319 @@
+<div class="background-container">
+    
+    <div class="std-background">
+
+<div class="">
+    <form class="registration-form-wrapper"
+     [formGroup]="companyForm"
+     (ngSubmit)="registerCompany()"
+     novalidate>
+    <div [hidden]="first_form">
+
+<div  class="form-group row">
+
+                          <label for="name" class="control-label col-sm-3
+                              col-form-label" >Name Of Company:</label>
+
+                          <div class="col-sm-9">
+                              <input id="name" class="form-control" type="text" name="name" formControlName="name">
+                <div class="alert alert-danger" *ngIf="companyForm.get('name').hasError('required')
+                && companyForm.get('name').touched">
+                    Name Of Company Is Required!
+                </div>
+
+
+</div>
+</div>
+
+
+<div                   class="form-group row">
+
+                          <label for="email" class="control-label col-sm-3
+                              col-form-label" >Email Of Company If Any:</label>
+
+                          <div class="col-sm-9">
+                              <input id="email" class="form-control" type="text" email="email" formControlName="email">
+                
+
+
+</div>
+</div>
+
+<div                   class="form-group row">
+
+                          <label for="phone" class="control-label col-sm-3
+                              col-form-label" >Contact Number Of Company:</label>
+
+                          <div class="col-sm-9">
+                              <input id="phone" class="form-control" type="text" phone="phone" formControlName="phone">
+                
+
+
+</div>
+</div>
+
+<div 
+                  class="form-group row">
+
+                          <label for="postal_address" class="control-label col-sm-3
+                              col-form-label" >Postal Address If Any:</label>
+
+                          <div class="col-sm-9">
+                              <input id="postal_address" class="form-control" type="text" postal_address="postal_address" formControlName="postal_address">
+
+</div>
+</div>
+        <div  
+                  class="form-group row">
+
+                          <label for="website" class="control-label col-sm-3
+                              col-form-label" >Website Address If Any:</label>
+
+                          <div class="col-sm-9">
+                              <input id="website" class="form-control" type="text" website="website" formControlName="website">
+                
+
+
+</div>
+</div>
+
+
+
+
+
+        
+        
+
+        
+        
+        
+        
+        <!-- <div [hidden]="drag_marker_location"> -->
+        <!--     <div> -->
+        <!--         <h4> -->
+        <!--             <br> -->
+
+        <!--             Simply drag the marker to the precise -->
+        <!--             location of the company, the address and coordinates will be obtained automatically -->
+        <!--         </h4> -->
+        <!--         <agm-map [latitude]="obtained_latitude" [longitude]="obtained_longitude" [scrollwheel]="false" [zoom]="draggable_map_zoom"> -->
+        <!-- <button class="btn btn-default" type="submit">Register Company</button> -->
+
+        <!--             <agm-marker [latitude]="obtained_latitude" [longitude]="obtained_longitude" -->
+        <!--                 [markerDraggable]="draggable" (dragEnd)="pos($event)" -->
+
+        <!--                 ></agm-marker> -->
+
+
+        <!--         </agm-map> -->
+      <!-- <button type="button" -->
+        <!--   (click)="useDragTogetLocation()"> --> 
+      <!-- My Location is not Suggested,Use Another Way</button> -->
+
+        <!-- <div formGroupName="location"> -->
+        <!--             <h4> Dont worry about these values </h4> -->
+
+
+        <!--         <label>   Company Location Name</label> -->
+        <!--         <input id="name" class="form-control" type="text" name="name" value="{{obtained_name}}" readonly -->
+        <!--                                                                    formControlName="name"> -->
+        <!--         <label>   Company Location Address </label> -->
+        <!--         <input id="address" class="form-control" type="text" name="address" value="{{obtained_address}}" readonly -->
+        <!--                                                                    formControlName="address"> -->
+        <!--         <label>   Company Location Latitude</label> -->
+        <!--         <input id="latitude" class="form-control" type="text" name="latitude" value="{{obtained_latitude}}" readonly -->
+        <!--                                                                    formControlName="latitude"> -->
+        <!--         <label>   Company Location Longitude</label> -->
+        <!--         <input id="longitude" class="form-control" type="text" name="longitude" value="{{obtained_longitude}}" readonly -->
+        <!--                                                                    formControlName="longitude"> -->
+        <!--         </div> -->
+
+
+
+        <!--     </div> -->
+        <!-- </div> -->
+
+        <div [hidden]="auto_suggest_location" >
+                   <div formGroupName="location" >
+                       <label
+                           for="location">Location
+                      of Company </label>
+          <div class="form-group">
+            <input placeholder="search for location"
+                   autocorrect="off" autocapitalize="off"
+                   spellcheck="off" type="text" class="form-control"
+                   #search_ref formControlName="search_place"
+                >
+
+      
+
+            <div class="alert alert-danger"
+			*ngIf="companyForm.get('location').get('search_place').touched &&
+		companyForm.get('location').get('search_place').hasError('required')"
+          > location REQUIRED
+        </div>
+
+            <div class="alert alert-danger"
+			*ngIf="companyForm.get('location').get('search_place').valid && !search_input_valid"
+          > Select from the suggested locations
+        </div>
+
+
+          </div>
+
+            <!-- <div class="form-group"> -->
+            <!--    <input id="location_name" class="form-control" type="text" name="location_name" -->
+				<!-- value={{location_name}} -->
+            <!--     formControlName="name"> Name of Place</div> -->
+
+
+            <!-- <div class="form-group"> -->
+            <!--    <input id="location_address" class="form-control" type="text" name="location_address" -->
+				<!-- value={{location_address}} -->
+            <!--     formControlName="address"> Address</div> -->
+
+
+            <!-- <div class="form-group"> -->
+            <!--     <input id="latitude" class="form-control" type="text" name="latitude" -->
+				<!-- value={{latitude}} -->
+            <!--     #latitude_ref formControlName="latitude">Latitude</div> -->
+            <!-- <div class="form-group"> -->
+            <!--    <input id="longitude" class="form-control" type="text" name="longitude" -->
+				<!-- value={{longitude}} -->
+            <!--    #longitude_ref  formControlName="longitude"> Longitude</div> -->
+
+
+        </div>
+
+          <agm-map [latitude]="latitude"
+                   [longitude]="longitude"
+                   [scrollwheel]="false" [zoom]="autocomplete_map_zoom">
+            <agm-marker
+              [latitude]="latitude"
+              [longitude]="longitude"></agm-marker>
+          </agm-map>
+
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<button class="next-button-to-rep-details btn btn-lg" type="button"
+(click)="nextForm()"
+    
+          [disabled]="companyForm.controls.name?.errors 
+                                            ||
+                              companyForm.controls.location?.errors"
+
+    
+    > Next</button>
+
+      
+    </div>
+
+
+        <div [hidden]="second_form">
+
+<div  class="form-group row">
+
+                          <label for="company_representative_name" class="control-label col-sm-3
+                              col-form-label" >Name Of Representative:</label>
+
+                          <div class="col-sm-9">
+                              <input id="company_representative_name"
+                              class="form-control" type="text"
+                              company_representative_name="company_representative_name"
+                              formControlName="company_representative_name"
+                              (keypress)="nameInputBeingEntered()"  >
+                <div class="alert alert-danger" *ngIf="companyForm.get('company_representative_name').hasError('required')
+                && companyForm.get('company_representative_name').touched">
+                    Please enter the name of the company representative.
+                </div>
+<div class="alert alert-danger"
+*ngIf="companyForm.get('company_representative_name').hasError('pattern')
+                && companyForm.get('company_representative_name').touched">
+                    Name Not Valid.
+                </div>
+                <div class="alert alert-danger"
+                    *ngIf="company_representative_name_has_error">
+                    Please enter a valid name. 
+                </div>
+</div>
+</div>
+
+            
+        
+        <div  class="form-group row">
+
+                          <label for="company_representative_email" class="control-label col-sm-3
+                              col-form-label" >Email Of Representative:</label>
+
+                          <div class="col-sm-9">
+                              <input id="company_representative_email" class="form-control" type="text" company_representative_email="company_representative_email" formControlName="company_representative_email">
+                
+
+
+</div>
+</div>
+        <div  class="form-group row">
+
+                          <label for="company_representative_phone" class="control-label col-sm-3
+                              col-form-label" >Contact Number Of Representative:</label>
+
+                          <div class="col-sm-9">
+                              <input id="company_representative_phone"
+                              class="form-control" type="text"
+                              company_representative_phone="company_representative_phone"
+                              formControlName="company_representative_phone"
+                              (keypress)="phoneInputBeingEntered()"  >
+                <div class="alert alert-danger" *ngIf="companyForm.get('company_representative_phone').hasError('required')
+                && companyForm.get('company_representative_phone').touched">
+                    Please enter the contact number of the company representative.
+                </div>
+<div class="alert alert-danger" *ngIf="companyForm.get('company_representative_phone').hasError('pattern')
+                          && companyForm.get('company_representative_phone').touched">
+                              Phone Number should be a minimum of 10 characters
+                              and can only consist of numbers and '+'.ie
+                              formats are 0201112223 or +233201112223
+                              <br>
+                              If you have more than one contact number,separate
+                              them by the '/' .ie  +233201112223/+233404535115
+                              
+
+                          </div>
+<div class="alert alert-danger"
+                    *ngIf="company_representative_phone_has_error">
+                    Please enter a valid phone number
+                </div>
+</div>
+
+
+</div>
+
+    <div [hidden]="!sending_email" class="alert alert-warning">Registering Your
+        Compay,Please Be Patient...</div>
+
+
+
+
+
+                      <br>
+                      <br>
+
+
+
+
+      <button (click)="goBack()" class="back-to-company-registration btn btn-lg" type="button"  
+          >
+      Back</button>
+        <button [disabled]="sending_email" class="register-company btn btn-lg" type="submit"
+            >Register Company</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+
+
+

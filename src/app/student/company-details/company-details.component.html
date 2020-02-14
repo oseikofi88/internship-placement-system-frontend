@@ -1,0 +1,129 @@
+<div class="content-body" *ngIf="student" >
+
+    <div *ngIf="placement_done && student_placed; then
+        company_details_content else
+        no_company_details_content">
+    </div>
+
+    <ng-template #company_details_content>
+    <h4>These are the available information about your company 
+    </h4>
+<br>
+<br>
+
+<div class="company-details">
+<dl class="dl-horizontal">
+  <dt>
+  Name of company:  
+  </dt>
+  <dd>{{  student[0].company.name | titlecase}}</dd>
+
+    <br>
+
+  <dt>Email:</dt>
+  <dd>{{    student[0].company.email }}</dd>
+    <br>
+
+  <dt>Website:</dt>
+  <dd>
+     {{ student[0].company.website}}
+</dd>
+    <br>
+
+  <dt>Phone:</dt>
+  <dd>
+     {{ student[0].company.phone }}
+</dd>
+    <br>
+
+  <dt>Postal Address:</dt>
+  <dd>
+    {{ student[0].company.postal_address}}
+</dd>
+    <br>
+
+
+  <dt>Company<dt>
+ <dd></dd>
+  <dt>Rep's Name:</dt>
+  <dd>
+    {{ student[0].company.representative_name | titlecase}}
+</dd>
+    <br>
+
+  <dt>Company<dt>
+ <dd></dd>
+  <dt>Rep's Number:</dt>
+  <dd>
+   {{ student[0].company.representative_phone}}
+</dd>
+    <br>
+
+
+  <dt>Location:</dt>
+  <dd>
+        {{ student[0].company.location.name }}
+</dd>
+
+</dl>
+
+
+          <button class="track-from-residence-button btn btn-info" (click)="trackCompanyFromResidence()">Track company location from my
+              Place of Residence</button>
+          <button class="track-from-current-location-button btn btn-info"(click)="trackCompanyFromCurrentLocation()">Track company location from my
+              current location</button>
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          
+
+
+
+
+
+<div>
+    <div class="loading-directions" *ngIf="loading_directions">
+        <img src="../../../assets/img/loading_icon.gif" alt="" height="100" width="100">
+        <h5>Getting Directions To Your Company </h5>
+    </div>
+	<div *ngIf=" estimated_duration!= null &&
+    estimated_distance != null &&
+    loading_directions == false">
+		<h4> Estimated Driving Time to  your Company  is {{ estimated_duration}}</h4>
+		<h4>Estimated Driving Distance to your Company is {{ estimated_distance }} </h4>
+	</div>
+    <agm-map [latitude]="latitude"
+               [longitude]="longitude" [scrollwheel]="false"
+               [zoom]="zoom">
+  <div>
+  <agm-directions  [origin]="origin" [destination]="destination" #test></agm-directions>
+  </div>
+</agm-map>
+
+
+          <br>
+          <br>
+          <br>
+          <br>
+
+
+</div>
+
+
+
+
+
+</div>
+    </ng-template>
+    <ng-template #no_company_details_content>
+    <div>
+        <h4> hmm apparently no company details are available yet</h4>
+    </div>
+    </ng-template>
+
+

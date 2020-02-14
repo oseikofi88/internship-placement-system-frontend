@@ -1,0 +1,70 @@
+<div *ngIf="student" class="content-body">                
+    <div [hidden]=hide_content>
+<div class="alert alert-danger" role="alert">
+            <h4>{{student[0].surname | titlecase}} {{student[0].other_names |
+                titlecase}} unfortunately, the college wasn't able to get a
+                company for you.
+                 </h4>
+                    <button type="button" (click)="getIntroductoryLetter()"
+                    class="introductory-letter-button btn btn-default">Get 
+                    Introductory Letter</button>
+                    </div>
+
+                   <h4> Please Read The Following Instructions Carefully </h4>
+<p>
+1.Placement has been done but unfortunately the college wasn't able to get a
+company around your locality for you to intern with.<br><br>
+
+2.You have to download the introductory letter and present it to the human
+resource department of the company you want to go and seek placement from.<br><br>
+
+
+3.If the company accepts to take you as an intern, you need to get a
+confirmation letter from them that they have indeed given you an opportunity to
+intern with them.<br><br>
+
+4.Get a softcopy of this letter (this can simply be done by taking a picture
+of the letter or scanning
+the letter into a pdf .<br>Note that the formats for uploading are images 
+and pdfs)
+you need to upload this file when you are registering the company or later
+in case you don't have it now.<br><br>
+
+5.Upon acceptance by the company, you then need to register the company by
+clicking on the "I have found a company" button.
+<br><br>
+
+6.Before registering the company,ask your supervisor if the company want more
+interns.If his response is favourble, ask him/her the departments he/she wants the
+students to come from and the number of students he/she wants from the 
+departments he/she requested.While registering the company, you can make a request
+for students on behalf of the companies. <br>
+<br>
+
+
+
+7.After registering the company, you will now get access to all the necessary
+files for you to download.<br><br>
+
+
+8.Do well to check your dashboard from time to time whilst you are still looking
+for a company as the college will still try to get you a company to
+intern from now till the 1st of June.<br>
+<br>
+
+
+
+
+
+                <br>
+                <br>
+                <button type="button" (click)="studentHasFoundACompany()"
+                    class="found-company-button btn btn-success"> 
+                    I have found a company.
+                    </button>
+
+</p>
+</div>
+</div>
+ <!-- <div [hidden]=hide_company_register> --> 
+ 

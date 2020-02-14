@@ -1,0 +1,636 @@
+<div class="background-container">
+
+    <div class="std-background img-responsive">
+
+        <div class="registration-div">
+
+
+            <form class="registration-form-wrapper" [hidden]="!submitted" [formGroup]="studentForm"
+                (ngSubmit)="registerStudent()" novalidate>
+
+                <div [hidden]="first_instruction_div" class="instructions">
+                    <h2>Hey There,</h2>
+
+                    <h4>
+                        <p>Welcome to the College Of Engineering Internship Placement
+                            System(COE-IPS). This system is designed to be used
+                            by only third year students of the College of Engineering,
+                            KNUST.
+                        </p>
+                        <br>
+                        <br>
+                        <p> As part of our requirements for graduation in the B.Sc
+                            Engineering Degree programmes, students must complete
+                            a minimum of 8-week industrial attachment programme
+                            with a local or an overseas industrial establishment
+                            between May and August.
+                        </p>
+                        <br>
+                        <br>
+                        <p>The purpose of the vacation training among other things
+                            is to enable students to translate the theories they
+                            have learnt in the classroom into tasks in a real work
+                            environment, thus students are to note that vacation
+                            training is compulsory and is offered as a course.</p>
+
+                    </h4>
+                    <br>
+                    <br>
+                    <button type="button" (click)=goToStudentHomePage() class="btn btn-lg back-button">Back</button>
+                    <button type="button" (click)="goToSecondInstructionFromFirstInstruction()" class="btn btn-lg next-button">Next</button>
+                </div>
+
+                <div [hidden]="second_instruction_div" class="instructions">
+                    <h2>
+                        Please Note the following carefully.
+                    </h2>
+                    <br>
+
+                    <h4>
+                        <p>Make sure the particulars you provide are all valid. Some
+                            problems with incorrect fields may be:</p><br>
+
+                        <p>1)Failure to provide a correct phone number will mean you
+                            can't be reached for any information regarding your
+                            placement.</p>
+
+                        <p>2)Failure to provide correct index number will mean your
+                            company can't confirm you are from KNUST</p>
+
+                        <p>3)Failure to provide a valid email address will mean you
+                            can't get information related to your placement via
+                            email.</p>
+
+                        <p>4)Please make sure that you keep your password safe as
+                            this is the same password you will use to login to
+                            check your placement status and download relevant documents.(Please
+                            Note that this password is not the password provided
+                            by the school.You can use any password as you )</p>
+
+                        <p>5)Students who already have companies that they will intern
+                            with shouldn't forget to select the "I have a company
+                            already button." option </p>
+
+                    </h4>
+                    <br>
+                    <br>
+
+                    <button type="button" (click)="goToThirdInstructionFromSecondInstruction()" class="btn btn-lg
+        next-button">
+    Next </button>
+                    <button type="button" (click)="goToFirstInstructionFromSecondInstruction()" class="btn btn-lg back-button">Back</button>
+                </div>
+
+
+                <div [hidden]="third_instruction_div">
+                    <h2>
+                        PLACEMENT RULES.
+                    </h2>
+                    <br>
+                    <br>
+
+                    <h4>
+                        <p> The form field titled place of residence should be filled
+                            with reference to the place where you will be staying
+                            to do your internship. Therefore if you will be staying
+                            in Ayeduase in Kumasi during the internship period,
+                            you should enter Ayeduase as your place of residence
+                            and then select the Ayeduase location that will be
+                            suggested .(Please Note that you are always to select
+                            the location that will be suggested as you start typing
+                            your place of residence).
+
+                        </p>
+
+                        <p>Please confirm your place of residence by checking on the
+                            map to see if the place the marker points to is the
+                            locality of the town you selected to avoid any ambiguity
+                            as one town name can be given to more than one place.
+                        </p>
+
+                        <p>In some cases, the name of the town is embedded in a facility
+                            such as a school or a hospital.Eg by typing oforikrom,
+                            suggested places will be oforikrom police station which
+                            happens to be in oforikrom .If this happens to be the
+                            case where the name of the location is not suggested
+                            but a facility containing the town name is rather suggested,
+                            the suggested facility should be selected as the place
+                            of residence as this will equally work. If multiple
+                            facilities are suggested , select the one that is close
+                            to where you stay.
+                        </p>
+
+                        <p>As rare as it may be, if it happens that your town is not
+                            suggested, Please enter the name of another town close
+                            to your locality as your place of residence.
+                        </p>
+
+                        <p>Foreign students who intend to intern in Ghana should enter
+                            their place of residence in Ghana where they will be
+                            staying for the internship(Please consult your Ghanaian
+                            collegues about the location if your not sure). If
+                            you will be staying in brunei ,enter brunei as the
+                            place of residence. If not, Enter the name of the locality
+                            you will be residing in your country . Eg.Ikeja, Enugu,etc
+                        </p>
+                    </h4>
+                    <br>
+                    <br>
+
+                    <button type="button" (click)="goToFirstRegistrationForm()" class="btn btn-lg
+next-button">
+    Next </button>
+                    <button type="button" (click)="goToSecondInstructionFromThirdInstruction()" class="btn btn-lg back-button"> Back </button>
+                </div>
+
+
+
+                <div [hidden]="first_form">
+
+
+
+
+
+
+                    <div [ngClass]="{'has-error':studentForm.controls.index_number?.touched && 
+                      studentForm.controls.index_number?.errors,
+                      'has-success' :studentForm.controls.index_number?.touched
+                      && studentForm.controls.index_number?.valid }" class="form-group row">
+
+                        <label for="index_number" class="control-label col-sm-2 col-form-label">Index Number:</label>
+
+                        <div class="col-sm-10">
+                            <input id="index_number" class="form-control" type="text" name="index_number" formControlName="index_number">
+                            <span class="help-block" *ngIf="studentForm.get('index_number').hasError('required')
+                && studentForm.get('index_number').touched">
+                    Index Number Is Required!
+                </span>
+                            <span class="help-block" *ngIf="studentForm.get('index_number').hasError('minlength')
+                && studentForm.get('index_number').touched">
+                    Index Number Should Not Be Less Than 7 In Number!
+                </span>
+
+                            <span class="help-block" *ngIf="studentForm.get('index_number').hasError('maxlength')
+                && studentForm.get('index_number').touched">
+                    Index Number Should Not Be Greater Than 7 In Number!
+                </span>
+
+                            <span class=" help-block" *ngIf="studentForm.get('index_number').hasError('pattern')
+                    && studentForm.get('index_number').touched">
+                    Index Number, Not Index Letters!
+                   </span>
+
+                            <span class=" help-block" *ngIf="  studentForm.get('index_number').errors
+
+&& studentForm.get('index_number').errors.duplicate
+&&
+studentForm.get('index_number').touched">
+
+                       This Index Number Has Already Registered
+                    </span>
+
+                            <span class="checking help-block" *ngIf="studentForm.get('index_number').status === 'PENDING'">
+                        Checking...
+                    </span>
+
+                        </div>
+
+                        <div>
+
+
+                        </div>
+                    </div>
+
+                    <div [ngClass]="{'has-error':studentForm.controls.surname?.touched && 
+                      studentForm.controls.surname?.errors,
+                      'has-success' :studentForm.controls.surname?.touched
+                      && studentForm.controls.surname?.valid }" class="form-group row">
+
+                        <label for="surname" class="control-label col-sm-2 col-form-label">Surname:</label>
+                        <div class="col-sm-10">
+                            <span> 
+                              <input id="surname" class="form-control" type="text" name="surname" formControlName="surname">
+                          </span>
+
+                            <span class=" help-block" *ngIf="studentForm.get('surname').hasError('required')
+                          && studentForm.get('surname').touched">
+                              Surname Is Required!
+                          </span>
+
+                            <span class=" help-block" *ngIf="studentForm.get('surname').hasError('pattern')
+                          && studentForm.get('surname').touched">
+                              Surname Can Only Consist Of Alphabets And Hyphen!
+                          </span>
+
+
+                        </div>
+                    </div>
+
+
+                    <div [ngClass]="{'has-error':studentForm.controls.other_names?.touched && 
+                      studentForm.controls.other_names?.errors,
+                      'has-success' :studentForm.controls.other_names?.touched
+                      && studentForm.controls.other_names?.valid }" class="form-group row">
+
+                        <label for="other_names" class="control-label col-sm-2 col-form-label">Other Name(s):</label>
+
+                        <div class="col-sm-10">
+                            <input id="other_names" class="form-control" type="text" name="other_names" formControlName="other_names">
+
+                            <span class=" help-block" *ngIf="studentForm.get('other_names').hasError('required')
+                          && studentForm.get('other_names').touched">
+                              Other Names Is Required!
+
+
+                          </span>
+
+                            <span class=" help-block" *ngIf="studentForm.get('other_names').hasError('pattern')
+                          && studentForm.get('other_names').touched">
+                              Other Names Can Only Consist Of Alphabets And Hyphen!
+                          </span>
+                        </div>
+                    </div>
+
+
+
+                    <div [ngClass]="{'has-error':studentForm.controls.phone?.touched && 
+                      studentForm.controls.phone?.errors,
+                      'has-success' :studentForm.controls.phone?.touched
+                      && studentForm.controls.phone?.valid }" class="form-group row">
+
+                        <label for="phone" class="control-label col-sm-2 col-form-label">Phone:</label>
+
+                        <div class="col-sm-10">
+                            <input id="phone" class="form-control" type="text" name="phone" formControlName="phone">
+
+                            <span class=" help-block" *ngIf="studentForm.get('phone').hasError('required')
+                          && studentForm.get('phone').touched">
+                                Phone number is required
+
+
+                          </span>
+
+                            <span class=" help-block" *ngIf="studentForm.get('phone').hasError('pattern')
+                          && studentForm.get('phone').touched">
+                              Phone Number should be a minimum of 10 characters
+                              and can only consist of numbers and '+'.ie
+                              formats are 0201112223 or +233201112223
+                              <br>
+                              If You have more than one contact number,separate
+                              them by the '/' .ie  +233201112223/+233404535115
+                              
+
+                          </span>
+
+                        </div>
+
+                    </div>
+
+                    <div [ngClass]="{'has-error':studentForm.controls.email?.touched && 
+                      studentForm.controls.email?.errors,
+                      'has-success' :studentForm.controls.email?.touched
+                      && studentForm.controls.email?.valid }" class="form-group row">
+
+                        <label for="email" class="control-label col-sm-2 col-form-label">Email:</label>
+
+                        <div class="col-sm-10">
+                            <input id="email" class="form-control" type="text" name="email" formControlName="email">
+
+                            <span class=" help-block" *ngIf="studentForm.get('email').hasError('required')
+                                                                             && studentForm.get('email').touched">
+                                                                                 Email is Required!
+
+                                                                             </span>
+
+                            <span class=" help-block" *ngIf="studentForm.get('email').touched
+                          && studentForm.get('email').errors
+                          && studentForm.get('email').errors.incorrectMailFormat">
+                              Please enter a valid email
+                          </span>
+
+                        </div>
+
+                    </div>
+
+                    <div [ngClass]="{'has-error':studentForm.controls.main_department?.touched && 
+                      studentForm.controls.main_department?.errors,
+                      'has-success' :studentForm.controls.main_department?.touched
+                      && studentForm.controls.main_department?.valid }" class="form-group row">
+
+                        <label for="department" class="control-label col-sm-2 col-form-label">Department:</label>
+
+                        <div class="col-sm-10">
+                            <select (change)="onSelectMainDepartment($event)" id="main_department" class="form-control"
+                                type="text" formControlName="main_department"> 
+                              <option *ngFor="let main_department of
+                              main_departments let i =index "
+                              [value]="i">
+                              {{main_department.name }} </option>
+
+                          </select>
+                            <span class=" help-block" *ngIf="studentForm.get('main_department').hasError('required')
+                          && studentForm.get('main_department').touched
+                          ">
+                         please select your department. 
+                          </span>
+                        </div>
+                    </div>
+
+
+                    <div [ngClass]="{'has-error':studentForm.controls.sub_department?.touched && 
+                      studentForm.controls.sub_department?.errors,
+                      'has-success' :studentForm.controls.sub_department?.touched
+                      && studentForm.controls.sub_department?.valid }" class="form-group row">
+
+                        <label for="department" class="control-label col-sm-2
+                              col-form-label">Please Specify:</label>
+
+                        <div class="col-sm-10">
+                            <select (change)="onSelectSubDepartment($event)" id="sub_department" class="form-control"
+                                type="text" name="sub_department" formControlName="sub_department">
+                              <option *ngFor="let sub_department of
+                              sub_departments;let i =index "
+                              [value]="i">
+                              {{sub_department.name }} </option>
+
+                          </select>
+                            <span class=" help-block" *ngIf="studentForm.get('sub_department').hasError('required')
+                          && studentForm.get('sub_department').touched
+                          ">
+                              Please Specify 
+                          </span>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <label for="student_type">Please Select Student Type</label>
+                        <div class="radio">
+                            <label> 
+                              <input 
+                                     type="radio" value="0"
+                                                  formControlName="foreign_student" >
+                              Ghanaian Student
+                          </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                              <input   type="radio"
+                                                               value="1"formControlName="foreign_student" >
+                                                               Foreign Student
+                          </label>
+                        </div>
+                    </div>
+
+
+
+
+                    <div>
+                        <label for="want_placement">Do you Have A Company
+                              To Intern With Already: </label>
+
+
+                        <div class="radio">
+                            <label>
+                                  <input 
+                                               type="radio" value="0"
+                                                            formControlName="want_placement">
+                                  Yes I Already Have A Company I Will Intern
+                                  With.
+                              </label></div>
+
+
+                        <div class="radio">
+                            <label> 
+                                      <input 
+                                             type="radio" value="1"
+                                                          formControlName="want_placement" checked>
+                                      No I Do Not  Have A Company I Will Intern
+                                      With.
+                                  </label>
+                        </div>
+                    </div>
+
+                    <br>
+
+
+                    <div formGroupName="passwords">
+
+                        <div [ngClass]="{'has-error':studentForm['controls'].passwords['controls'].password.touched && 
+                        studentForm['controls'].passwords['controls'].password.errors,
+                      'has-success': 
+                        studentForm['controls'].passwords['controls'].password.touched && 
+                        studentForm['controls'].passwords['controls'].password.valid}"
+                            class="form-group row">
+                            <label class="control-label col-sm-2 col-form-label" for="password">Password</label>
+                            <div class="col-sm-10">
+                                <input id="password" class="form-control" type="password" name="Password" formControlName="password">
+                                <div class="help-block" *ngIf="studentForm.get('passwords').get('password').hasError('required')
+        && studentForm.get('passwords').get('password').touched"> Password is required
+                                </div>
+                                <div class="help-block" *ngIf="studentForm.get('passwords').get('password').hasError('minlength')
+        && studentForm.get('passwords').get('password').touched">
+                                    password should be 5 or more characters!
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div [ngClass]="{'has-error':studentForm['controls'].passwords['controls'].confirm_password.touched && 
+                        studentForm['controls'].passwords['controls'].confirm_password.errors,
+                      'has-success': 
+                        studentForm['controls'].passwords['controls'].confirm_password.touched && 
+                        studentForm['controls'].passwords['controls'].confirm_password.valid
+                        &&
+                        studentForm['controls'].passwords.valid}" class="form-group row">
+                            <label class="control-label col-sm-2 col-form-label" for="password">Confirm Password</label>
+
+                            <div class="col-sm-10">
+                                <input id="confirm_password" class="form-control" type="password" name="confirm_password"
+                                    formControlName="confirm_password">
+
+                                <span class="help-block" *ngIf="studentForm.get('passwords').get('confirm_password').hasError('required')
+        && studentForm.get('passwords').get('confirm_password').touched">
+              confirm password is required!
+
+          </span>
+
+                                <span class="help-block" *ngIf="studentForm.get('passwords').hasError('passwordMismatch')
+        && studentForm.get('passwords').get('confirm_password').touched">
+              Password mismatch!
+          </span>
+                            </div>
+
+
+                            <button type="button" class="btn btn-lg form-next-button" (click)="firstForm()"
+                                (click)="secondForm();myMap.triggerResize()" [disabled]="studentForm.controls.index_number.errors
+                                            || studentForm['controls'].surname.errors || studentForm['controls'].other_names.errors
+                                            || studentForm['controls'].phone.errors
+                                            || studentForm['controls'].email.errors
+                                            ||
+                              studentForm['controls'].passwords['controls'].confirm_password.errors 
+                                            ||
+                              studentForm['controls'].passwords['controls'].password.errors 
+                                            ||
+                              studentForm['controls'].passwords.errors
+                                            ||
+                                            studentForm['controls'].main_department.errors
+                                            || 
+                                            studentForm['controls'].sub_department.errors">Next</button>
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+                <!-- the triggerResize() is to refresh -->
+                <!-- the map when the second form is -->
+                <!-- loaded because the maps doesn't -->
+                <!-- load when the second form -->
+                <!-- becomes unhidden -->
+
+
+
+                <div [hidden]="second_form">
+
+
+                    <div [ngClass]="{'has-error':studentForm['controls'].locale['controls'].search_place.touched && 
+                                            studentForm['controls'].locale['controls'].search_place.errors
+                                            &&
+                                            !location_details_obtained_from_google_maps,
+                                            'has-success' :studentForm['controls'].locale['controls'].search_place.touched
+                                            &&
+                                            studentForm['controls'].locale['controls'].search_place.valid
+                                             }" class="form-group row">
+
+                        <div formGroupName="locale">
+                            <label for="location">Place of Residence</label>
+                            <input placeholder="search for location" autocorrect="off" autocapitalize="off"
+                                spellcheck="off" type="text" class="location-input form-control"
+                                #search_ref formControlName="search_place">
+
+
+                            <div class=" help-block" *ngIf="studentForm.get('locale').get('search_place').touched &&
+                      studentForm.get('locale').get('search_place').hasError('required')">Location Is Required!
+                            </div>
+
+                            <div class=" help-block" *ngIf="studentForm.get('locale').get('search_place').valid
+                               && !location_details_obtained_from_google_maps">
+                            Select from the suggested locations
+                            </div>
+
+
+
+                        </div>
+                        <br>
+
+
+                        <div>
+                            <agm-map #myMap [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false"
+                                [zoom]="zoom">
+                                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                            </agm-map>
+                        </div>
+                        <br>
+                        <br>
+
+                    </div>
+
+                    <button type="button" class="btn btn-lg back-button" (click)="firstForm()" (click)="secondForm()">
+                          Back</button>
+
+
+                    <button type="button" class="btn btn-lg next-button" (click)="secondForm()" (click)="thirdForm();displayFormInputs()"
+                        [disabled]="studentForm.invalid
+                                            ">Next</button>
+
+
+
+
+
+                </div>
+
+
+
+
+
+                <!-- <p>Form value: {{ studentForm.value | json }} </p> -->
+                <!-- <p>Form status: {{studentForm.status || json }} -->
+                <!-- </p>Form status for index number -->
+                <!-- {{studentForm.controls.index_number?.errors |json}} -->
+
+
+
+                <div [hidden]="third_form">
+                    <div>
+
+                        <h4> You have requested to register with the following credentials
+                        </h4>
+
+                        <dl class="dl-horizontal">
+                            <dt>Index Number:</dt>
+                            <dd> {{studentForm.controls.index_number?.value}} </dd>
+                            <dt>Surname:</dt>
+                            <dd> {{studentForm.controls.surname?.value}} </dd>
+                            <dt>Other Names:</dt>
+                            <dd> {{studentForm.controls.other_names?.value}} </dd>
+                            <dt>Phone:</dt>
+                            <dd> {{studentForm.controls.phone?.value}} </dd>
+                            <dt>Email:</dt>
+                            <dd> {{studentForm.controls.email?.value}} </dd>
+                            <dt>Password
+                              <dd> {{entered_password}} </dd>
+                          <dt>Department:</dt>
+                            <dd> {{selected_main_department_name}} - {{selected_sub_department_name}}
+                            </dd>
+                            <dt>Student Type:</dt>
+                            <dd> {{selected_student_type}} </dd>
+                            <dt>Area of Residence:</dt>
+                            <dd> {{area_of_residence}} </dd>
+                            <dt>Do You Have </dt>
+                            <dd></dd>
+                            <dt>A Company</dt>
+                            <dd></dd>
+                            <dt>To Intern With Already:</dt>
+                            <dd>
+                                {{want_placement}}
+                            </dd>
+                        </dl>
+                        <br>
+
+                        <br>
+                        <br>
+
+                        <button type="button" class="btn btn-lg last-back-button" (click)="firstForm()"
+                            (click)="thirdForm()">Back</button>
+                        <button type="submit" class="btn btn-lg submit-button" [disabled]="studentForm.invalid ||
+                                            !registering_student">Submit</button>
+
+                        <br>
+                        <br>
+                        <div [hidden]="registering_student" class="alert alert-warning">Registering ,Please Be Patient...</div>
+                    </div>
+
+
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+.select-company{
+    float:left;
+    margin-left:30px;
+}
+
+.register-company{
+    float:right;
+    margin-right:30px;
+}
+
+.add-student,.remove-student{
+    float:left;
+    margin-left:30px;
+    
+}
+
+.add-student-for-registered-company,.remove-student-for-registered-company,h4{
+    float:right;
+    margin-right:30px;
+    
+}
+.students{
+    float:left;
+    margin-left:50px;
+}
+
+.select-from-registered_companies{
+display:block;
+margin: 0 auto;
+}
+
+
+agm-map {
+    padding:20px;
+    height: 480px;
+    width:480;
+}

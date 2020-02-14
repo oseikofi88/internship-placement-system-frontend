@@ -1,0 +1,49 @@
+    <h4><u>Departmental Company Statistics</u></h4>
+<div class="loading-directions" *ngIf="loading_data">
+        <img src="../../../assets/img/loading_icon.gif" alt="" height="100" width="100">
+        <h5>Loading Data,Please Wait</h5>
+    </div>
+    <br>
+    <br>
+    
+
+<div class="table-responsive-lm">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Company Name</th>
+      <th scope="col">Slots Given</th>
+      <th scope="col">Students Placed There</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let statistics of company_statistics ">
+    <tr>
+
+        <td> <a
+                [routerLink]="['company-details',statistics.selected_company_id]"
+                [queryParams]="{ details_type:'company_details'
+                }">{{statistics.company_name}} -
+                {{statistics.company_district}},{{statistics.company_region}}</a></td>
+        <td><a
+                [routerLink]="['company-details',statistics.selected_company_id]"
+                [queryParams]="{ details_type:'slots_given'
+                }">{{statistics.number_of_students_requested}}</a></td>
+        <td><a
+                [routerLink]="['company-details',statistics.selected_company_id]"
+                [queryParams]="{ details_type:'students_placed_in_company'
+                }">{{statistics.students_placed_in_company}}</a></td>
+
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<router-outlet></router-outlet>
+
+
+
+
+</div>

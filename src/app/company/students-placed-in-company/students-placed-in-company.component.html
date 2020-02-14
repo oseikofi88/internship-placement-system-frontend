@@ -1,0 +1,40 @@
+<div class="content-body">
+<div [hidden]="list_of_students">
+   <p><br><br>
+        &#9658;Your Company has successfully ordered
+       for students.
+      <br><br>
+        &#9658; Unfortunately, We couldn't
+       place any students in your company <br><br>
+   </p>
+</div>
+
+
+<div [hidden]="!list_of_students"> 
+
+          <table class="table">
+			  <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Place Of Residence</th>
+              </tr>
+			  </thead>
+                  <tbody *ngFor="let student of students">
+                      <tr>  
+                        
+                          <td>{{student.surname}}
+                              {{student.other_names}}</td>
+                          <td>{{student.department}}</td>
+                          <td>{{student.phone}}</td>
+                          <td>{{student.email}}</td>
+                          <td>{{student.location.address}}</td>
+                    </tr>
+                  
+                  </tbody>
+          </table>
+</div>
+</div>
+

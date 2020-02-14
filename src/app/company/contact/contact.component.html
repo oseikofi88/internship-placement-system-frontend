@@ -1,0 +1,57 @@
+<div class="content-body">
+    <br>
+
+    <h4>Do You Have Any Concerns That You Would Like The College To Be Aware
+        Of?<br>(This can range from a suggestion to reporting of students with bad behaviour) </h4>
+    <h4>Please File it below(Note that this will be forwarded to the College Internship
+        Coordinator )</h4>
+
+    <form [formGroup]="concernForm"
+     (ngSubmit)="fileConcern()" novalidate >
+     <div class="form-group complaint-box">
+         <label for="concern-tite">Concern Title:</label>
+         <input type="text" formControlName="concern_title" >
+         <br>
+         <div *ngIf="concernForm.get('concern_title').hasError('maxlength')
+         && concernForm.get('concern_title').touched" class="alert
+         alert-danger" role="alert">Please Summarise Your
+         Concern Title</div>
+
+         <label for="comment">Concern Message:</label>
+         <textarea class="form-control" rows="5" id="comment"
+                                                 formControlName="concern_message"></textarea>
+         <div *ngIf="concernForm.get('concern_message').hasError('maxlength')
+         && concernForm.get('concern_message').touched" class="alert
+         alert-danger" role="alert">Please Summarise Your
+         Concern Message</div>
+    <div [hidden]="!sending_email" class="alert alert-warning">Sending Your
+        Concern To The Coordinator...</div>
+         <button [disabled]="concernForm.invalid || sending_email" class="send-complaint-button btn btn-success">Send</button>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+
+
+     </div><br>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>Do you have an issue or a suggestion concerning the site, please email the
+    admin vacationtraining.coe@gmail.com</p>
+</div>

@@ -2,7 +2,9 @@
 
 
   This is a system that I designed and implemented for the faculty of my university in 2017 when I was a student.
-  This was used to place students in various organizations based on criteria such as location of student, course of study ,etc.
+  This was used to place students in various organizations based on criteria such as location of student, course of study ,number of slots required by company, company location, etc.
+
+  Angular 4 was used with Google Maps API for geocoding, directions, places(autocomplete) and geolocation used.
   
   
   It has been opened source now because due to changing requirement, a new one has been implemented to be used by the faculty, hence the faculty does not rely on this.
